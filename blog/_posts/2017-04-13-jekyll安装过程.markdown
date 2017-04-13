@@ -1,0 +1,37 @@
+---
+layout: post
+title:  "jekyll安装过程"
+date:   2017-04-13 14:59:24 +0800
+categories: jekyll install
+---
+Mac OS X El Capitan系统下安装jekyll：
+
+1.sudo gem update --system(需要翻墙)
+
+更新gem
+
+oh my zsh翻墙：[Oh My Zsh翻墙方法][link1]
+
+2.sudo gem install jekyll bundler
+
+安装jekyll bundler
+
+[Operation not permitted解决方法][link2]
+
+3.jekyll new blog
+
+在blog文件夹下创建一个新的jekyll项目
+
+4.cd blog
+
+5.bundle exec jekyll serve
+
+启动jekyll服务
+
+6.在浏览器打开http://localhost:4000
+
+参考链接: [https://jekyllrb.com/docs/quickstart/][link]
+
+[link]: https://jekyllrb.com/docs/quickstart/
+[link1]:
+[link2]:

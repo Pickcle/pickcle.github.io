@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "Oh My Zsh翻墙方案"
+date:   2017-04-13 15:10:24 +0800
+categories: ohmyzsh 翻墙
+---
+1.终端输入vim ~/.zshrc，查看Oh My Zsh的配置文件
+
+2.添加以下内容:
+{% highlight ruby %}
+# socks5代理
+alias setproxy="export all_proxy=socks5://127.0.0.1:1080"
+alias unsetproxy="unset all_proxy"
+{% endhighlight %}
+
+3.保存退出vim，重启终端
+
+4.输入setproxy命令，启用socks5代理进行翻墙
