@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Pickcle&#39;s Blog</title>
-  <meta name="description" content="Pickcle&#39;s Blog">
+  <title>Vue从零开始记录</title>
+  <meta name="description" content="Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, o...">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="/">
+  <link rel="canonical" href="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -64,92 +64,40 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Vue从零开始记录</h1>
+    <p class="post-meta">
+      <time datetime="2017-05-28T14:59:24+08:00" itemprop="datePublished">
+        
+        May 28, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</p>
+
+<p>解决方案：</p>
+
+<p>node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了</p>
+
+<p>使用html-webpack-plugin时，指定template对应的模板html中，不能有&lt;div /&gt;这样的写法，必须是&lt;div&gt;&lt;/div&gt;这样的标准写法，否则会报错</p>
+
+<p>Vue warn: Error compiling template:</p>
+
+<div id="app">
+  <script type="text/javascript" src="app-46fdf745b7df8bcb9dd2.js"></script></div>
+
+<ul>
+  <li>Templates should only be responsible for mapping the state to the UI. Avoid placing tags with side-effects in your templates, such as <script>, as they will not be parsed.</script></li>
+</ul>
+
+  </div>
+
   
-  
-
-
-  <ul class="post-list">
-    
-      <li>
-        
-        <span class="post-meta">May 28, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">Vue从零开始记录</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 28, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/vue/2017/05/28/Vue-runtime-only-build.html">Vue warn: You are using the runtime-only build of Vue</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 28, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html">webpack打包报错TypeError: $export is not a function</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 12, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">atom安装插件失败解决方案</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">Apr 13, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html">Operation not permitted解决方法</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">Apr 13, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html">Oh My Zsh翻墙方案</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">Apr 13, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/update/2017/04/13/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">Apr 13, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html">jekyll安装过程</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-
-</div>
+</article>
 
       </div>
     </main>
