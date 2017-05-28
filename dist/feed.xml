@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-05-28T22:42:01+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-05-28T22:49:41+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
 </subtitle><entry><title type="html">atom安装插件失败解决方案</title><link href="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html" rel="alternate" type="text/html" title="atom安装插件失败解决方案" /><published>2017-05-12T14:59:24+08:00</published><updated>2017-05-12T14:59:24+08:00</updated><id>/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</id><content type="html" xml:base="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">&lt;p&gt;在windows系统中打开atom，安装package失败，错误码404&lt;/p&gt;
 
 &lt;p&gt;解决方案：&lt;/p&gt;
@@ -57,6 +57,8 @@
 &lt;p&gt;3.jekyll new blog&lt;/p&gt;
 
 &lt;p&gt;在blog文件夹下创建一个新的jekyll项目&lt;/p&gt;
+
+&lt;p&gt;如果是导入了就项目，也必须走一遍这个过程，因为在新建项目时，会安装一堆gem库，如果不走这步，会有各种cannot find sass之类的报错&lt;/p&gt;
 
 &lt;p&gt;4.cd blog&lt;/p&gt;
 
