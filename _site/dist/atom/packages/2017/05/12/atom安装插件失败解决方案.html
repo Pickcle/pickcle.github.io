@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Operation not permitted解决方法</title>
-  <meta name="description" content="使用sudo gem install jekyll bundler安装jekyll时发生错误:">
+  <title>atom安装插件失败解决方案</title>
+  <meta name="description" content="在windows系统中打开atom，安装package失败，错误码404">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html">
+  <link rel="canonical" href="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -67,28 +67,25 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Operation not permitted解决方法</h1>
+    <h1 class="post-title" itemprop="name headline">atom安装插件失败解决方案</h1>
     <p class="post-meta">
-      <time datetime="2017-04-13T15:20:24+08:00" itemprop="datePublished">
+      <time datetime="2017-05-12T14:59:24+08:00" itemprop="datePublished">
         
-        Apr 13, 2017
+        May 12, 2017
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>使用sudo gem install jekyll bundler安装jekyll时发生错误:</p>
+    <p>在windows系统中打开atom，安装package失败，错误码404</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">ERROR</span><span class="p">:</span> <span class="no">While</span> <span class="n">executing</span> <span class="n">gem</span> <span class="p">.</span><span class="nf">.</span><span class="o">.</span> <span class="p">(</span><span class="no">Errno</span><span class="o">::</span><span class="no">EPERM</span><span class="p">)</span>
-<span class="no">Operation</span> <span class="n">not</span> <span class="n">permitted</span> <span class="o">-</span> <span class="sr">/usr/</span><span class="n">bin</span><span class="o">/</span><span class="n">jekyll</span></code></pre></figure>
+<p>解决方案：</p>
 
-<p>解决方法:</p>
+<p>1.<a href="https://atom.io/packages">https://atom.io/packages</a>，找到插件的github地址</p>
 
-<p>sudo gem install -n /usr/local/bin/ jekyll</p>
+<p>2.进入atom的包管理目录，~/.atom/packages，git clone插件</p>
 
-<p>默认安装目录是/usr/bin，将安装目录改成/usr/local/bin，可以绕过SIP检测</p>
-
-<p>参考链接: <a href="http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11">http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11</a></p>
+<p>3.进入插件目录，npm install</p>
 
 
   </div>

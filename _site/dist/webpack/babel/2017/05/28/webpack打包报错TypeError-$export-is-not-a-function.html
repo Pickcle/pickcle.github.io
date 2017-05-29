@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Operation not permitted解决方法</title>
-  <meta name="description" content="使用sudo gem install jekyll bundler安装jekyll时发生错误:">
+  <title>webpack打包报错TypeError: $export is not a function</title>
+  <meta name="description" content="webpack打包时报错TypeError: $export is not a function">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html">
+  <link rel="canonical" href="/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -67,29 +67,21 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Operation not permitted解决方法</h1>
+    <h1 class="post-title" itemprop="name headline">webpack打包报错TypeError: $export is not a function</h1>
     <p class="post-meta">
-      <time datetime="2017-04-13T15:20:24+08:00" itemprop="datePublished">
+      <time datetime="2017-05-28T14:59:24+08:00" itemprop="datePublished">
         
-        Apr 13, 2017
+        May 28, 2017
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>使用sudo gem install jekyll bundler安装jekyll时发生错误:</p>
+    <p>webpack打包时报错TypeError: $export is not a function</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">ERROR</span><span class="p">:</span> <span class="no">While</span> <span class="n">executing</span> <span class="n">gem</span> <span class="p">.</span><span class="nf">.</span><span class="o">.</span> <span class="p">(</span><span class="no">Errno</span><span class="o">::</span><span class="no">EPERM</span><span class="p">)</span>
-<span class="no">Operation</span> <span class="n">not</span> <span class="n">permitted</span> <span class="o">-</span> <span class="sr">/usr/</span><span class="n">bin</span><span class="o">/</span><span class="n">jekyll</span></code></pre></figure>
+<p>解决方案：</p>
 
-<p>解决方法:</p>
-
-<p>sudo gem install -n /usr/local/bin/ jekyll</p>
-
-<p>默认安装目录是/usr/bin，将安装目录改成/usr/local/bin，可以绕过SIP检测</p>
-
-<p>参考链接: <a href="http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11">http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11</a></p>
-
+<p>webpack.config.js中,loaders中的babel-loader需要加一行exclude: /node_modules/</p>
 
   </div>
 
