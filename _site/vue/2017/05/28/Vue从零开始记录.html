@@ -85,6 +85,8 @@
 <br />
 <br />
 <br />
+<br />
+<br />
 Vue warn: Error compiling template:</p>
 
 <div id="app">
@@ -94,7 +96,62 @@ Vue warn: Error compiling template:</p>
 
 <p>解决方案：</p>
 
-<p>使用html-webpack-plugin时，指定template对应的模板html中，不能有&lt;div /&gt;这样的写法，必须是&lt;div&gt;&lt;/div&gt;这样的标准写法，否则会报错</p>
+<p>使用html-webpack-plugin时，指定template对应的模板html中，不能有&lt;div /&gt;这样的写法，必须是&lt;div&gt;&lt;/div&gt;这样的标准写法，否则会报错
+<br />
+<br />
+<br />
+<br />
+<br />
+webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？</p>
+
+<p>解决方案：</p>
+
+<p>step.1</p>
+
+<p>server文件中添加</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">var</span> <span class="n">compiler</span> <span class="o">=</span> <span class="n">wepback</span><span class="p">(</span><span class="n">wepbackConfig</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">webpackHotMiddleware</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'webpack-hot-middleware'</span><span class="p">)</span>
+
+<span class="n">var</span> <span class="n">hotMiddleware</span> <span class="o">=</span> <span class="n">webpackHotMiddleware</span><span class="p">(</span><span class="n">compiler</span><span class="p">,</span> <span class="p">{</span>
+  <span class="ss">log: </span><span class="n">function</span> <span class="p">()</span> <span class="p">{}</span>
+<span class="p">})</span>
+
+<span class="n">compiler</span><span class="p">.</span><span class="nf">plugin</span><span class="p">(</span><span class="s1">'compilation'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">compilation</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">compilation</span><span class="p">.</span><span class="nf">plugin</span><span class="p">(</span><span class="s1">'html-webpack-plugin-after-emit'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cb</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">hotMiddleware</span><span class="p">.</span><span class="nf">publish</span><span class="p">({</span> <span class="ss">action: </span><span class="s1">'reload'</span> <span class="p">})</span>
+    <span class="n">cb</span><span class="p">()</span>
+  <span class="p">})</span>
+<span class="p">})</span></code></pre></figure>
+
+<p>当webpack重新打包html时，会派送个自定义的reload事件</p>
+
+<p>step.2</p>
+
+<p>新建文件hotMiddlewareClient.js</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">var</span> <span class="n">hotMiddlewareClient</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'webpack-hot-middleware/client?noInfo=true&amp;reload=true'</span><span class="p">)</span>
+
+<span class="n">hotMiddlewareClient</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="n">function</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="nf">action</span> <span class="o">===</span> <span class="s1">'reload'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">window</span><span class="p">.</span><span class="nf">location</span><span class="p">.</span><span class="nf">reload</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">})</span></code></pre></figure>
+
+<p>接收reload事件，强制浏览器reload</p>
+
+<p>step.3</p>
+
+<p>在webpack.config.js中配置</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="ss">entry: </span><span class="p">{</span>
+  <span class="ss">app: </span><span class="p">[</span>
+    <span class="s1">'./hotMiddlewareClient'</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="no">SRC_PATH</span><span class="p">,</span> <span class="s1">'index.js'</span><span class="p">)</span>
+  <span class="p">]</span>
+<span class="p">},</span></code></pre></figure>
+
 
   </div>
 

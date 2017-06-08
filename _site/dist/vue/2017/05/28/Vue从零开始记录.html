@@ -81,9 +81,11 @@
 
 <p>解决方案：</p>
 
-<p>node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了</p>
-
-<p>Vue warn: Error compiling template:</p>
+<p>node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了
+<br />
+<br />
+<br />
+Vue warn: Error compiling template:</p>
 
 <div id="app">
   <script type="text/javascript" src="app-46fdf745b7df8bcb9dd2.js"></script></div>
@@ -93,6 +95,56 @@
 <p>解决方案：</p>
 
 <p>使用html-webpack-plugin时，指定template对应的模板html中，不能有&lt;div /&gt;这样的写法，必须是&lt;div&gt;&lt;/div&gt;这样的标准写法，否则会报错</p>
+
+<p><br />
+<br />
+<br />
+webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？</p>
+
+<p>解决方案：</p>
+
+<p>step.1</p>
+
+<p>server文件中添加</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">var</span> <span class="n">compiler</span> <span class="o">=</span> <span class="n">wepback</span><span class="p">(</span><span class="n">wepbackConfig</span><span class="p">)</span>
+<span class="n">var</span> <span class="n">hotMiddleware</span> <span class="o">=</span> <span class="n">webpackHotMiddleware</span><span class="p">(</span><span class="n">compiler</span><span class="p">,</span> <span class="p">{</span>
+  <span class="ss">log: </span><span class="n">function</span> <span class="p">()</span> <span class="p">{}</span>
+<span class="p">})</span>
+
+<span class="n">compiler</span><span class="p">.</span><span class="nf">plugin</span><span class="p">(</span><span class="s1">'compilation'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">compilation</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">compilation</span><span class="p">.</span><span class="nf">plugin</span><span class="p">(</span><span class="s1">'html-webpack-plugin-after-emit'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cb</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">hotMiddleware</span><span class="p">.</span><span class="nf">publish</span><span class="p">({</span> <span class="ss">action: </span><span class="s1">'reload'</span> <span class="p">})</span>
+    <span class="n">cb</span><span class="p">()</span>
+  <span class="p">})</span>
+<span class="p">})</span></code></pre></figure>
+
+<p>当webpack重新打包html时，会派送个自定义的reload事件</p>
+
+<p>step.2</p>
+
+<p>新建文件hotMiddlewareClient.js</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">var</span> <span class="n">hotMiddlewareClient</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'webpack-hot-middleware/client?noInfo=true&amp;reload=true'</span><span class="p">)</span>
+
+<span class="n">hotMiddlewareClient</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="n">function</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="nf">action</span> <span class="o">===</span> <span class="s1">'reload'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">window</span><span class="p">.</span><span class="nf">location</span><span class="p">.</span><span class="nf">reload</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">})</span></code></pre></figure>
+
+<p>step.3</p>
+
+<p>在webpack.config.js中配置</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="ss">entry: </span><span class="p">{</span>
+  <span class="ss">app: </span><span class="p">[</span>
+    <span class="s1">'./hotMiddlewareClient'</span><span class="p">,</span>
+    <span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="no">SRC_PATH</span><span class="p">,</span> <span class="s1">'index.js'</span><span class="p">)</span>
+  <span class="p">]</span>
+<span class="p">},</span></code></pre></figure>
+
 
   </div>
 

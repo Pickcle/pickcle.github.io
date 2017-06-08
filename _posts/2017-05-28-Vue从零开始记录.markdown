@@ -12,6 +12,8 @@ node_modules中vue的package.json中可以看到，真正导出的是main指向�
 <br>
 <br>
 <br>
+<br>
+<br>
 Vue warn: Error compiling template:
 
 <div id="app">
@@ -22,3 +24,64 @@ Templates should only be responsible for mapping the state to the UI. Avoid plac
 解决方案：
 
 使用html-webpack-plugin时，指定template对应的模板html中，不能有<div />这样的写法，必须是<div></div>这样的标准写法，否则会报错
+<br>
+<br>
+<br>
+<br>
+<br>
+webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？
+
+解决方案：
+
+step.1
+
+server文件中添加
+
+{% highlight ruby %}
+var compiler = wepback(wepbackConfig)
+var webpackHotMiddleware = require('webpack-hot-middleware')
+
+var hotMiddleware = webpackHotMiddleware(compiler, {
+  log: function () {}
+})
+
+compiler.plugin('compilation', function (compilation) {
+  compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
+    hotMiddleware.publish({ action: 'reload' })
+    cb()
+  })
+})
+{% endhighlight %}
+
+当webpack重新打包html时，会派送个自定义的reload事件
+
+step.2
+
+新建文件hotMiddlewareClient.js
+
+{% highlight ruby %}
+var hotMiddlewareClient = require('webpack-hot-middleware/client?noInfo=true&reload=true')
+
+hotMiddlewareClient.subscribe(function (e) {
+  if (e.action === 'reload') {
+    console.log(e)
+    window.location.reload()
+  }
+})
+
+{% endhighlight %}
+
+接收reload事件，强制浏览器reload
+
+step.3
+
+在webpack.config.js中配置
+
+{% highlight ruby %}
+entry: {
+  app: [
+    './hotMiddlewareClient',
+    path.join(SRC_PATH, 'index.js')
+  ]
+},
+{% endhighlight %}
