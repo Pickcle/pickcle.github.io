@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Pickcle&#39;s Blog</title>
-  <meta name="description" content="Pickcle&#39;s Blog">
+  <title>尤雨溪知乎live摘要</title>
+  <meta name="description" content="尤雨溪live">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="canonical" href="http://localhost:4000/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -64,101 +64,121 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">尤雨溪知乎live摘要</h1>
+    <p class="post-meta">
+      <time datetime="2017-06-15T14:59:24+08:00" itemprop="datePublished">
+        
+        Jun 15, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>尤雨溪live</p>
+
+<p>组件：基本抽象单元，页面-&gt;组件树，react揭示了组件可以是函数，</p>
+
+<p>1.纯展示 component</p>
+
+<p>2.接入型 container</p>
+
+<p>3.交互型 交互性强，复用</p>
+
+<p>4.功能型 router-view transition</p>
+
+<p><br />
+模板 vs jsx</p>
+
+<p>jsx其实是js语法糖，获得了js的灵活性</p>
+
+<p>模板尽可能的少逻辑，更清晰地展示视图</p>
+
+<p><br />
+变化侦测&amp;渲染机制</p>
+
+<p>声明式 描述数据跟dom的关系 view = render(state)</p>
+
+<p>命令式 jquery 维护困难</p>
+
+<p>pull：粗粒度，react的setState，告诉系统去进行暴力检查</p>
+
+<p>push：</p>
+
+<p>observe：细粒度，watcher和observer会很多，内存开销</p>
+
+<p>shouldComponentUpdate，pureComponent是为了提高精度</p>
+
+<p>vue2中等粒度，组件级别是push</p>
+
+<p>侦测成本换自动优化</p>
+
+<p><br />
+状态管理：从源事件映射到状态改变</p>
+
+<p>redux： 数据不可变，immutable</p>
+
+<p>mobx&amp;vuex：数据可变，声明式，解决watch带来的副作用</p>
+
+<p>都没解决异步</p>
+
+<p>局部和全局状态无法区别</p>
+
+<p><br />
+路由</p>
+
+<p>component-is</p>
+
+<p>hash模式兼容history模式</p>
+
+<p>重定向</p>
+
+<p>别名</p>
+
+<p>懒加载</p>
+
+<p>跳转，钩子，异步操作，回退</p>
+
+<p><br />
+CSS</p>
+
+<p>scope，css module解决作用域问题</p>
+
+<p>atomic css 压缩css体积，尽量原子化，styletron</p>
+
+<p>weex 将css parse成js，实现跨平台</p>
+
+<p><br />
+构建工具</p>
+
+<p>任务自动化</p>
+
+<p>开发体验和效率hot reload</p>
+
+<p>部署相关的需求</p>
+
+<p>编译时优化</p>
+
+<p>rollup只适合打包纯js</p>
+
+<p><br />
+服务端数据通信</p>
+
+<p>RESTFUL API</p>
+
+<p>不适合 强关联性 实时通信</p>
+
+<p><br />
+跨平台渲染</p>
+
+<p>将细粒度的变化转为相应平台的API</p>
+
+  </div>
+
   
-  
-
-
-  <ul class="post-list">
-    
-      <li>
-        
-        <span class="post-meta">Jun 15, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html">尤雨溪知乎live摘要</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 28, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">Vue从零开始记录</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 28, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/vue/2017/05/28/Vue-runtime-only-build.html">Vue warn: You are using the runtime-only build of Vue</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 28, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html">webpack打包报错TypeError: $export is not a function</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">May 12, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">atom安装插件失败解决方案</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">Apr 13, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html">Operation not permitted解决方法</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">Apr 13, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html">Oh My Zsh翻墙方案</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">Apr 13, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/update/2017/04/13/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        
-        <span class="post-meta">Apr 13, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html">jekyll安装过程</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-
-</div>
+</article>
 
       </div>
     </main>

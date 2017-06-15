@@ -1,5 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-08T22:59:44+08:00</updated><id>http://localhost:4000/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
-</subtitle><entry><title type="html">Vue从零开始记录</title><link href="http://localhost:4000/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html" rel="alternate" type="text/html" title="Vue从零开始记录" /><published>2017-05-28T14:59:24+08:00</published><updated>2017-05-28T14:59:24+08:00</updated><id>http://localhost:4000/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">&lt;p&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-15T16:58:57+08:00</updated><id>http://localhost:4000/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
+</subtitle><entry><title type="html">尤雨溪知乎live摘要</title><link href="http://localhost:4000/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html" rel="alternate" type="text/html" title="尤雨溪知乎live摘要" /><published>2017-06-15T14:59:24+08:00</published><updated>2017-06-15T14:59:24+08:00</updated><id>http://localhost:4000/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81</id><content type="html" xml:base="http://localhost:4000/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html">&lt;p&gt;尤雨溪live&lt;/p&gt;
+
+&lt;p&gt;组件：基本抽象单元，页面-&amp;gt;组件树，react揭示了组件可以是函数，&lt;/p&gt;
+
+&lt;p&gt;1.纯展示 component&lt;/p&gt;
+
+&lt;p&gt;2.接入型 container&lt;/p&gt;
+
+&lt;p&gt;3.交互型 交互性强，复用&lt;/p&gt;
+
+&lt;p&gt;4.功能型 router-view transition&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+模板 vs jsx&lt;/p&gt;
+
+&lt;p&gt;jsx其实是js语法糖，获得了js的灵活性&lt;/p&gt;
+
+&lt;p&gt;模板尽可能的少逻辑，更清晰地展示视图&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+变化侦测&amp;amp;渲染机制&lt;/p&gt;
+
+&lt;p&gt;声明式 描述数据跟dom的关系 view = render(state)&lt;/p&gt;
+
+&lt;p&gt;命令式 jquery 维护困难&lt;/p&gt;
+
+&lt;p&gt;pull：粗粒度，react的setState，告诉系统去进行暴力检查&lt;/p&gt;
+
+&lt;p&gt;push：&lt;/p&gt;
+
+&lt;p&gt;observe：细粒度，watcher和observer会很多，内存开销&lt;/p&gt;
+
+&lt;p&gt;shouldComponentUpdate，pureComponent是为了提高精度&lt;/p&gt;
+
+&lt;p&gt;vue2中等粒度，组件级别是push&lt;/p&gt;
+
+&lt;p&gt;侦测成本换自动优化&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+状态管理：从源事件映射到状态改变&lt;/p&gt;
+
+&lt;p&gt;redux： 数据不可变，immutable&lt;/p&gt;
+
+&lt;p&gt;mobx&amp;amp;vuex：数据可变，声明式，解决watch带来的副作用&lt;/p&gt;
+
+&lt;p&gt;都没解决异步&lt;/p&gt;
+
+&lt;p&gt;局部和全局状态无法区别&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+路由&lt;/p&gt;
+
+&lt;p&gt;component-is&lt;/p&gt;
+
+&lt;p&gt;hash模式兼容history模式&lt;/p&gt;
+
+&lt;p&gt;重定向&lt;/p&gt;
+
+&lt;p&gt;别名&lt;/p&gt;
+
+&lt;p&gt;懒加载&lt;/p&gt;
+
+&lt;p&gt;跳转，钩子，异步操作，回退&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+CSS&lt;/p&gt;
+
+&lt;p&gt;scope，css module解决作用域问题&lt;/p&gt;
+
+&lt;p&gt;atomic css 压缩css体积，尽量原子化，styletron&lt;/p&gt;
+
+&lt;p&gt;weex 将css parse成js，实现跨平台&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+构建工具&lt;/p&gt;
+
+&lt;p&gt;任务自动化&lt;/p&gt;
+
+&lt;p&gt;开发体验和效率hot reload&lt;/p&gt;
+
+&lt;p&gt;部署相关的需求&lt;/p&gt;
+
+&lt;p&gt;编译时优化&lt;/p&gt;
+
+&lt;p&gt;rollup只适合打包纯js&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+服务端数据通信&lt;/p&gt;
+
+&lt;p&gt;RESTFUL API&lt;/p&gt;
+
+&lt;p&gt;不适合 强关联性 实时通信&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+跨平台渲染&lt;/p&gt;
+
+&lt;p&gt;将细粒度的变化转为相应平台的API&lt;/p&gt;</content><author><name></name></author><summary type="html">尤雨溪live</summary></entry><entry><title type="html">Vue从零开始记录</title><link href="http://localhost:4000/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html" rel="alternate" type="text/html" title="Vue从零开始记录" /><published>2017-05-28T14:59:24+08:00</published><updated>2017-05-28T14:59:24+08:00</updated><id>http://localhost:4000/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">&lt;p&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/p&gt;
 
 &lt;p&gt;解决方案：&lt;/p&gt;
 

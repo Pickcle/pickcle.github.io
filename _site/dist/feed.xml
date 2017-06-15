@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-06-08T22:55:27+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-06-08T23:00:26+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
 </subtitle><entry><title type="html">Vue从零开始记录</title><link href="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html" rel="alternate" type="text/html" title="Vue从零开始记录" /><published>2017-05-28T14:59:24+08:00</published><updated>2017-05-28T14:59:24+08:00</updated><id>/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">&lt;p&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/p&gt;
 
 &lt;p&gt;解决方案：&lt;/p&gt;
 
 &lt;p&gt;node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了
+&lt;br /&gt;
+&lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
@@ -16,9 +18,10 @@ Vue warn: Error compiling template:&lt;/p&gt;
 
 &lt;p&gt;解决方案：&lt;/p&gt;
 
-&lt;p&gt;使用html-webpack-plugin时，指定template对应的模板html中，不能有&amp;lt;div /&amp;gt;这样的写法，必须是&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;这样的标准写法，否则会报错&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
+&lt;p&gt;使用html-webpack-plugin时，指定template对应的模板html中，不能有&amp;lt;div /&amp;gt;这样的写法，必须是&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;这样的标准写法，否则会报错
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
 webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？&lt;/p&gt;
@@ -30,6 +33,8 @@ webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？&lt;/p&
 &lt;p&gt;server文件中添加&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compiler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wepback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wepbackConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webpackHotMiddleware&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'webpack-hot-middleware'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
 &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hotMiddleware&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webpackHotMiddleware&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compiler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;ss&quot;&gt;log: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
@@ -55,6 +60,8 @@ webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？&lt;/p&
     &lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;接收reload事件，强制浏览器reload&lt;/p&gt;
 
 &lt;p&gt;step.3&lt;/p&gt;
 

@@ -1,0 +1,104 @@
+---
+layout: post
+title:  "尤雨溪知乎live摘要"
+date:   2017-06-15 14:59:24 +0800
+categories: live
+---
+尤雨溪live
+
+组件：基本抽象单元，页面->组件树，react揭示了组件可以是函数，
+
+1.纯展示 component
+
+2.接入型 container
+
+3.交互型 交互性强，复用
+
+4.功能型 router-view transition
+
+<br>
+模板 vs jsx
+
+jsx其实是js语法糖，获得了js的灵活性
+
+模板尽可能的少逻辑，更清晰地展示视图
+
+<br>
+变化侦测&渲染机制
+
+声明式 描述数据跟dom的关系 view = render(state)
+
+命令式 jquery 维护困难
+
+pull：粗粒度，react的setState，告诉系统去进行暴力检查
+
+
+push：
+
+observe：细粒度，watcher和observer会很多，内存开销
+
+shouldComponentUpdate，pureComponent是为了提高精度
+
+vue2中等粒度，组件级别是push
+
+侦测成本换自动优化
+
+<br>
+状态管理：从源事件映射到状态改变
+
+redux： 数据不可变，immutable
+
+mobx&vuex：数据可变，声明式，解决watch带来的副作用
+
+都没解决异步
+
+局部和全局状态无法区别
+
+<br>
+路由
+
+component-is
+
+hash模式兼容history模式
+
+重定向
+
+别名
+
+懒加载
+
+跳转，钩子，异步操作，回退
+
+<br>
+CSS
+
+scope，css module解决作用域问题
+
+atomic css 压缩css体积，尽量原子化，styletron
+
+weex 将css parse成js，实现跨平台
+
+<br>
+构建工具
+
+任务自动化
+
+开发体验和效率hot reload
+
+部署相关的需求
+
+编译时优化
+
+rollup只适合打包纯js
+
+<br>
+服务端数据通信
+
+RESTFUL API
+
+不适合 强关联性 实时通信
+
+<br>
+跨平台渲染
+
+将细粒度的变化转为相应平台的API
