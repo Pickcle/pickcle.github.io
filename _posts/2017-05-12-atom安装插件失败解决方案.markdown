@@ -8,10 +8,8 @@ categories: atom packages
 
 解决方案：
 
-1.[https://atom.io/packages][link]，找到插件的github地址
+1.[https://atom.io/packages](https://atom.io/packages)，找到插件的github地址
 
 2.进入atom的包管理目录，~/.atom/packages，git clone插件
 
 3.进入插件目录，npm install
-
-[link]: https://atom.io/packages

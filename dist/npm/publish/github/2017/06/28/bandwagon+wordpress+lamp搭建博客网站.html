@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>npm发布包步骤</title>
+  <meta name="description" content="最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/npm/publish/github/2017/06/28/bandwagon+wordpress+lamp%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99.html">
+  <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
+  
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">Pickcle&#39;s Blog</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/2017-06-21-%E6%90%AD%E5%BB%BA%E7%AE%80%E6%98%93vue%E8%84%9A%E6%89%8B%E6%9E%B6%E5%B7%A5%E5%85%B7.html">搭建简易vue脚手架工具</a>
+            
+          
+            
+            
+            <a class="page-link" href="/about/">About</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">npm发布包步骤</h1>
+    <p class="post-meta">
+      <time datetime="2017-06-28T12:00:00+08:00" itemprop="datePublished">
+        
+        Jun 28, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下</p>
+
+<p>Step.1 既然要在npm上发布，首先当然需要一个npm账号。<a href="https://www.npmjs.com/">【npm】</a></p>
+
+<p>Step.2 在自己的github上新建个仓库，本例中仓库名是arios，如果没有github账号，先注册一个。<a href="https://github.com/">【github】</a></p>
+
+<p>Step.3 将Step2中新建的仓库clone到本地。</p>
+
+<p>Step.4 在项目目录下npm init，自己填入信息生成package.json文件。</p>
+
+<p>Step.5 根据package.json中main对应的文件名，新建相应文件。比如main是index.js，则新建index.js，内容先随便写写</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>module.exports = exports = {
+  name: 'arios'
+}
+</code></pre>
+</div>
+
+<p>Step.6 准备提交代码到github，并打上tag，tag的版本号需要跟package.json中的version保持一致</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>git add .
+git commit -m 'first commit'
+git tag v1.0.0
+git push
+git push origin --tags
+</code></pre>
+</div>
+
+<p>Step.7 将仓库发布到npm，只需要一个简单的命令就行了</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>npm publish
+</code></pre>
+</div>
+<p>如果是第一次publish，需要输入npm账号密码邮箱，以后就不需要了。</p>
+
+<p>发布完成后，npm会以刚才tag的版本作为最新版本。</p>
+
+<p>这样一个发布过程就完成了，要使用的时候，使用npm install arios，就会安装最新版本的包。</p>
+
+<p><br /></p>
+
+<p>如果之后需要发布新版本，也很简单。</p>
+
+<p>Step.1 修改源文件后，将package.json中的version递增，版本号遵循semver规范。<a href="https://gist.github.com/smallnest/666c88d3dc06774f5498">【semver规范】</a></p>
+
+<p>Step.2 为本次提交打上版本tag，假设新版本号为1.0.1</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>git add .
+git commit -m 'sceond commit'
+git tag v1.0.1
+git push
+git push origin --tags
+</code></pre>
+</div>
+
+<p>Step.3 发布到npm</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>npm publish
+</code></pre>
+</div>
+
+<p><br /></p>
+
+<p>还可以为npm包做travis-CI来保持可靠性</p>
+
+<p>Step.1 在github上fork<a href="https://github.com/plaindocs/travis-broken-example">【travis-broken-example】</a>这个库</p>
+
+<p>Step.2 用github关联登录<a href="https://travis-ci.org/auth">travis CI</a>，允许授权</p>
+
+<p>Step.3 在arios文件目录下新建.travis.yml文件，</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>language: node_js
+
+node_js:
+  - "4"
+</code></pre>
+</div>
+<p>上述文件表示使用node环境，用4.x版本进行build</p>
+
+<p>Step.4 在<a href="https://travis-ci.org/">travis-ci</a>官网上管理要build的仓库，在左边的My Repositories中进行管理。比如本例中将arios仓库的开关打开。</p>
+
+<p>Step.5 在arios项目的package.json中，修改script中test命令，本例中直接删除<code class="highlighter-rouge">&amp;&amp; exit 1</code>，并push到github中</p>
+
+<p>Step.6 travis重新build，成功，点击build passing图标，会出现一个弹窗，复制最下面的链接<code class="highlighter-rouge">https://travis-ci.org/Pickcle/arios.svg</code></p>
+
+<p>Step.7 在readme中添加<code class="highlighter-rouge">[![build status](https://travis-ci.org/Pickcle/arios.svg)](https://travis-ci.org/Pickcle/arios)</code>，push到github，现在再看readme，就能看到build passing的图标了</p>
+
+<p><br /></p>
+
+<p>过程中遇到的问题：</p>
+
+<p>npm publish –tag v1.0.0 时报错：Tag name must not be a valid SemVer range: 1.0.0</p>
+
+<p>这个报错是因为publish会自动将github仓库中的tag作为version，如果tag也使用v1.0.0，会导致冲突</p>
+
+<p>npm publish时报错you do not have permission to publish “arios”. Are you logged in as the correct user?</p>
+
+<p>这个报错很可能是因为arios这个包已经存在了，所以得换一个包名字再npm publish</p>
+
+  </div>
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Pickcle&#39;s Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Pickcle&#39;s Blog
+            
+            </li>
+            
+            <li><a href="mailto:348707253@qq.com">348707253@qq.com</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/pickcle"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">pickcle</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Pickcle&#39;s Blog
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

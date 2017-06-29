@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "搭建简易vue脚手架工具"
+date:   2017-06-21 14:59:24 +0800
+categories: vue cli
+---
+
+项目根目录npm init,初始化package.json文件
+
+安装依赖包，npm i -S commander
+
+项目根目录下新建bin文件夹
+
+在bin文件夹下新建blink和blink-init文件
+
+blink文件：
+
+{% highlight ruby %}
+#!/usr/bin/env node
+var program = require('commander')
+
+program
+  .version(require('../package').version)
+  .usage('<command> [options]')
+  .command('init', 'Initialize a project')
+  .command('list', 'List all templates')
+  .parse(process.argv)
+
+{% endhighlight %}
+
+`#!/usr/bin/env node`告诉系统使用node环境的解释器

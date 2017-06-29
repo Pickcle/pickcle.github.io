@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>atom安装插件失败解决方案</title>
-  <meta name="description" content="在windows系统中打开atom，安装package失败，错误码404">
+  <title>搭建简易vue脚手架工具</title>
+  <meta name="description" content="Pickcle&#39;s Blog">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">
+  <link rel="canonical" href="http://localhost:4000/2017-06-21-%E6%90%AD%E5%BB%BA%E7%AE%80%E6%98%93vue%E8%84%9A%E6%89%8B%E6%9E%B6%E5%B7%A5%E5%85%B7.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -72,25 +72,37 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">atom安装插件失败解决方案</h1>
+    <h1 class="post-title" itemprop="name headline">搭建简易vue脚手架工具</h1>
     <p class="post-meta">
-      <time datetime="2017-05-12T14:59:24+08:00" itemprop="datePublished">
+      <time datetime="2017-06-21T14:59:24+08:00" itemprop="datePublished">
         
-        May 12, 2017
+        Jun 21, 2017
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>在windows系统中打开atom，安装package失败，错误码404</p>
+    <p>项目根目录npm init,初始化package.json文件</p>
 
-<p>解决方案：</p>
+<p>安装依赖包，npm i -S commander</p>
 
-<p>1.<a href="https://atom.io/packages">https://atom.io/packages</a>，找到插件的github地址</p>
+<p>项目根目录下新建bin文件夹</p>
 
-<p>2.进入atom的包管理目录，~/.atom/packages，git clone插件</p>
+<p>在bin文件夹下新建blink和blink-init文件</p>
 
-<p>3.进入插件目录，npm install</p>
+<p>blink文件：</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#!/usr/bin/env node</span>
+<span class="n">var</span> <span class="n">program</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'commander'</span><span class="p">)</span>
+
+<span class="n">program</span>
+  <span class="p">.</span><span class="nf">version</span><span class="p">(</span><span class="nb">require</span><span class="p">(</span><span class="s1">'../package'</span><span class="p">).</span><span class="nf">version</span><span class="p">)</span>
+  <span class="p">.</span><span class="nf">usage</span><span class="p">(</span><span class="s1">'&lt;command&gt; [options]'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nf">command</span><span class="p">(</span><span class="s1">'init'</span><span class="p">,</span> <span class="s1">'Initialize a project'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nf">command</span><span class="p">(</span><span class="s1">'list'</span><span class="p">,</span> <span class="s1">'List all templates'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">process</span><span class="p">.</span><span class="nf">argv</span><span class="p">)</span></code></pre></figure>
+
+<p><code class="highlighter-rouge"><span class="err">#</span><span class="o">!</span><span class="sr">/usr/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">env</span> <span class="nx">node</span></code>告诉系统使用node环境的解释器</p>
 
   </div>
 

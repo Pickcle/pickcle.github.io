@@ -10,13 +10,13 @@ Mac OS X El Capitan系统下安装jekyll：
 
 更新gem
 
-oh my zsh翻墙：[Oh My Zsh翻墙方法][link1]
+oh my zsh翻墙：[Oh My Zsh翻墙方法](https://pickcle.github.io/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html)
 
 2.sudo gem install jekyll bundler
 
 安装jekyll bundler
 
-[Operation not permitted解决方法][link2]
+[Operation not permitted解决方法](https://pickcle.github.io/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html)
 
 3.jekyll new blog
 
@@ -32,8 +32,4 @@ oh my zsh翻墙：[Oh My Zsh翻墙方法][link1]
 
 6.在浏览器打开http://localhost:4000
 
-参考链接: [https://jekyllrb.com/docs/quickstart/][link]
-
-[link]: https://jekyllrb.com/docs/quickstart/
-[link1]: https://pickcle.github.io/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html
-[link2]: https://pickcle.github.io/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html
+参考链接: [https://jekyllrb.com/docs/quickstart/](https://jekyllrb.com/docs/quickstart/)

@@ -1,5 +1,285 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-06-08T23:00:26+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
-</subtitle><entry><title type="html">Vue从零开始记录</title><link href="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html" rel="alternate" type="text/html" title="Vue从零开始记录" /><published>2017-05-28T14:59:24+08:00</published><updated>2017-05-28T14:59:24+08:00</updated><id>/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">&lt;p&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-06-29T10:22:06+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
+</subtitle><entry><title type="html">npm发布包步骤</title><link href="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4</id><content type="html" xml:base="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html">&lt;p&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/p&gt;
+
+&lt;p&gt;Step.1 既然要在npm上发布，首先当然需要一个npm账号。&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;【npm】&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Step.2 在自己的github上新建个仓库，本例中仓库名是arios，如果没有github账号，先注册一个。&lt;a href=&quot;https://github.com/&quot;&gt;【github】&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Step.3 将Step2中新建的仓库clone到本地。&lt;/p&gt;
+
+&lt;p&gt;Step.4 在项目目录下npm init，自己填入信息生成package.json文件。&lt;/p&gt;
+
+&lt;p&gt;Step.5 根据package.json中main对应的文件名，新建相应文件。比如main是index.js，则新建index.js，内容先随便写写&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = exports = {
+  name: 'arios'
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Step.6 准备提交代码到github，并打上tag，tag的版本号需要跟package.json中的version保持一致&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
+git commit -m 'first commit'
+git tag v1.0.0
+git push
+git push origin --tags
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Step.7 将仓库发布到npm，只需要一个简单的命令就行了&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm publish
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;如果是第一次publish，需要输入npm账号密码邮箱，以后就不需要了。&lt;/p&gt;
+
+&lt;p&gt;发布完成后，npm会以刚才tag的版本作为最新版本。&lt;/p&gt;
+
+&lt;p&gt;这样一个发布过程就完成了，要使用的时候，使用npm install arios，就会安装最新版本的包。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果之后需要发布新版本，也很简单。&lt;/p&gt;
+
+&lt;p&gt;Step.1 修改源文件后，将package.json中的version递增，版本号遵循semver规范。&lt;a href=&quot;https://gist.github.com/smallnest/666c88d3dc06774f5498&quot;&gt;【semver规范】&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Step.2 为本次提交打上版本tag，假设新版本号为1.0.1&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
+git commit -m 'sceond commit'
+git tag v1.0.1
+git push
+git push origin --tags
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Step.3 发布到npm&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm publish
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;还可以为npm包做travis-CI来保持可靠性&lt;/p&gt;
+
+&lt;p&gt;Step.1 在github上fork&lt;a href=&quot;https://github.com/plaindocs/travis-broken-example&quot;&gt;【travis-broken-example】&lt;/a&gt;这个库&lt;/p&gt;
+
+&lt;p&gt;Step.2 用github关联登录&lt;a href=&quot;https://travis-ci.org/auth&quot;&gt;travis CI&lt;/a&gt;，允许授权&lt;/p&gt;
+
+&lt;p&gt;Step.3 在arios文件目录下新建.travis.yml文件，&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;language: node_js
+
+node_js:
+  - &quot;4&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;上述文件表示使用node环境，用4.x版本进行build&lt;/p&gt;
+
+&lt;p&gt;Step.4 在&lt;a href=&quot;https://travis-ci.org/&quot;&gt;travis-ci&lt;/a&gt;官网上管理要build的仓库，在左边的My Repositories中进行管理。比如本例中将arios仓库的开关打开。&lt;/p&gt;
+
+&lt;p&gt;Step.5 在arios项目的package.json中，修改script中test命令，本例中直接删除&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp; exit 1&lt;/code&gt;，并push到github中&lt;/p&gt;
+
+&lt;p&gt;Step.6 travis重新build，成功，点击build passing图标，会出现一个弹窗，复制最下面的链接&lt;code class=&quot;highlighter-rouge&quot;&gt;https://travis-ci.org/Pickcle/arios.svg&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Step.7 在readme中添加&lt;code class=&quot;highlighter-rouge&quot;&gt;[![build status](https://travis-ci.org/Pickcle/arios.svg)](https://travis-ci.org/Pickcle/arios)&lt;/code&gt;，push到github，现在再看readme，就能看到build passing的图标了&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;过程中遇到的问题：&lt;/p&gt;
+
+&lt;p&gt;npm publish –tag v1.0.0 时报错：Tag name must not be a valid SemVer range: 1.0.0&lt;/p&gt;
+
+&lt;p&gt;这个报错是因为publish会自动将github仓库中的tag作为version，如果tag也使用v1.0.0，会导致冲突&lt;/p&gt;
+
+&lt;p&gt;npm publish时报错you do not have permission to publish “arios”. Are you logged in as the correct user?&lt;/p&gt;
+
+&lt;p&gt;这个报错很可能是因为arios这个包已经存在了，所以得换一个包名字再npm publish&lt;/p&gt;</content><author><name></name></author><summary type="html">最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下</summary></entry><entry><title type="html">npm发布包步骤</title><link href="/npm/publish/github/2017/06/28/bandwagon+wordpress+lamp%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>/npm/publish/github/2017/06/28/bandwagon+wordpress+lamp%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99</id><content type="html" xml:base="/npm/publish/github/2017/06/28/bandwagon+wordpress+lamp%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99.html">&lt;p&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/p&gt;
+
+&lt;p&gt;Step.1 既然要在npm上发布，首先当然需要一个npm账号。&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;【npm】&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Step.2 在自己的github上新建个仓库，本例中仓库名是arios，如果没有github账号，先注册一个。&lt;a href=&quot;https://github.com/&quot;&gt;【github】&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Step.3 将Step2中新建的仓库clone到本地。&lt;/p&gt;
+
+&lt;p&gt;Step.4 在项目目录下npm init，自己填入信息生成package.json文件。&lt;/p&gt;
+
+&lt;p&gt;Step.5 根据package.json中main对应的文件名，新建相应文件。比如main是index.js，则新建index.js，内容先随便写写&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = exports = {
+  name: 'arios'
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Step.6 准备提交代码到github，并打上tag，tag的版本号需要跟package.json中的version保持一致&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
+git commit -m 'first commit'
+git tag v1.0.0
+git push
+git push origin --tags
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Step.7 将仓库发布到npm，只需要一个简单的命令就行了&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm publish
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;如果是第一次publish，需要输入npm账号密码邮箱，以后就不需要了。&lt;/p&gt;
+
+&lt;p&gt;发布完成后，npm会以刚才tag的版本作为最新版本。&lt;/p&gt;
+
+&lt;p&gt;这样一个发布过程就完成了，要使用的时候，使用npm install arios，就会安装最新版本的包。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果之后需要发布新版本，也很简单。&lt;/p&gt;
+
+&lt;p&gt;Step.1 修改源文件后，将package.json中的version递增，版本号遵循semver规范。&lt;a href=&quot;https://gist.github.com/smallnest/666c88d3dc06774f5498&quot;&gt;【semver规范】&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Step.2 为本次提交打上版本tag，假设新版本号为1.0.1&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
+git commit -m 'sceond commit'
+git tag v1.0.1
+git push
+git push origin --tags
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Step.3 发布到npm&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm publish
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;还可以为npm包做travis-CI来保持可靠性&lt;/p&gt;
+
+&lt;p&gt;Step.1 在github上fork&lt;a href=&quot;https://github.com/plaindocs/travis-broken-example&quot;&gt;【travis-broken-example】&lt;/a&gt;这个库&lt;/p&gt;
+
+&lt;p&gt;Step.2 用github关联登录&lt;a href=&quot;https://travis-ci.org/auth&quot;&gt;travis CI&lt;/a&gt;，允许授权&lt;/p&gt;
+
+&lt;p&gt;Step.3 在arios文件目录下新建.travis.yml文件，&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;language: node_js
+
+node_js:
+  - &quot;4&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;上述文件表示使用node环境，用4.x版本进行build&lt;/p&gt;
+
+&lt;p&gt;Step.4 在&lt;a href=&quot;https://travis-ci.org/&quot;&gt;travis-ci&lt;/a&gt;官网上管理要build的仓库，在左边的My Repositories中进行管理。比如本例中将arios仓库的开关打开。&lt;/p&gt;
+
+&lt;p&gt;Step.5 在arios项目的package.json中，修改script中test命令，本例中直接删除&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp; exit 1&lt;/code&gt;，并push到github中&lt;/p&gt;
+
+&lt;p&gt;Step.6 travis重新build，成功，点击build passing图标，会出现一个弹窗，复制最下面的链接&lt;code class=&quot;highlighter-rouge&quot;&gt;https://travis-ci.org/Pickcle/arios.svg&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Step.7 在readme中添加&lt;code class=&quot;highlighter-rouge&quot;&gt;[![build status](https://travis-ci.org/Pickcle/arios.svg)](https://travis-ci.org/Pickcle/arios)&lt;/code&gt;，push到github，现在再看readme，就能看到build passing的图标了&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;过程中遇到的问题：&lt;/p&gt;
+
+&lt;p&gt;npm publish –tag v1.0.0 时报错：Tag name must not be a valid SemVer range: 1.0.0&lt;/p&gt;
+
+&lt;p&gt;这个报错是因为publish会自动将github仓库中的tag作为version，如果tag也使用v1.0.0，会导致冲突&lt;/p&gt;
+
+&lt;p&gt;npm publish时报错you do not have permission to publish “arios”. Are you logged in as the correct user?&lt;/p&gt;
+
+&lt;p&gt;这个报错很可能是因为arios这个包已经存在了，所以得换一个包名字再npm publish&lt;/p&gt;</content><author><name></name></author><summary type="html">最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下</summary></entry><entry><title type="html">尤雨溪知乎live摘要</title><link href="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html" rel="alternate" type="text/html" title="尤雨溪知乎live摘要" /><published>2017-06-15T14:59:24+08:00</published><updated>2017-06-15T14:59:24+08:00</updated><id>/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81</id><content type="html" xml:base="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html">&lt;p&gt;尤雨溪live&lt;/p&gt;
+
+&lt;p&gt;组件：基本抽象单元，页面-&amp;gt;组件树，react揭示了组件可以是函数，&lt;/p&gt;
+
+&lt;p&gt;1.纯展示 component&lt;/p&gt;
+
+&lt;p&gt;2.接入型 container&lt;/p&gt;
+
+&lt;p&gt;3.交互型 交互性强，复用&lt;/p&gt;
+
+&lt;p&gt;4.功能型 router-view transition&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+模板 vs jsx&lt;/p&gt;
+
+&lt;p&gt;jsx其实是js语法糖，获得了js的灵活性&lt;/p&gt;
+
+&lt;p&gt;模板尽可能的少逻辑，更清晰地展示视图&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+变化侦测&amp;amp;渲染机制&lt;/p&gt;
+
+&lt;p&gt;声明式 描述数据跟dom的关系 view = render(state)&lt;/p&gt;
+
+&lt;p&gt;命令式 jquery 维护困难&lt;/p&gt;
+
+&lt;p&gt;pull：粗粒度，react的setState，告诉系统去进行暴力检查&lt;/p&gt;
+
+&lt;p&gt;push：&lt;/p&gt;
+
+&lt;p&gt;observe：细粒度，watcher和observer会很多，内存开销&lt;/p&gt;
+
+&lt;p&gt;shouldComponentUpdate，pureComponent是为了提高精度&lt;/p&gt;
+
+&lt;p&gt;vue2中等粒度，组件级别是push&lt;/p&gt;
+
+&lt;p&gt;侦测成本换自动优化&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+状态管理：从源事件映射到状态改变&lt;/p&gt;
+
+&lt;p&gt;redux： 数据不可变，immutable&lt;/p&gt;
+
+&lt;p&gt;mobx&amp;amp;vuex：数据可变，声明式，解决watch带来的副作用&lt;/p&gt;
+
+&lt;p&gt;都没解决异步&lt;/p&gt;
+
+&lt;p&gt;局部和全局状态无法区别&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+路由&lt;/p&gt;
+
+&lt;p&gt;component-is&lt;/p&gt;
+
+&lt;p&gt;hash模式兼容history模式&lt;/p&gt;
+
+&lt;p&gt;重定向&lt;/p&gt;
+
+&lt;p&gt;别名&lt;/p&gt;
+
+&lt;p&gt;懒加载&lt;/p&gt;
+
+&lt;p&gt;跳转，钩子，异步操作，回退&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+CSS&lt;/p&gt;
+
+&lt;p&gt;scope，css module解决作用域问题&lt;/p&gt;
+
+&lt;p&gt;atomic css 压缩css体积，尽量原子化，styletron&lt;/p&gt;
+
+&lt;p&gt;weex 将css parse成js，实现跨平台&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+构建工具&lt;/p&gt;
+
+&lt;p&gt;任务自动化&lt;/p&gt;
+
+&lt;p&gt;开发体验和效率hot reload&lt;/p&gt;
+
+&lt;p&gt;部署相关的需求&lt;/p&gt;
+
+&lt;p&gt;编译时优化&lt;/p&gt;
+
+&lt;p&gt;rollup只适合打包纯js&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+服务端数据通信&lt;/p&gt;
+
+&lt;p&gt;RESTFUL API&lt;/p&gt;
+
+&lt;p&gt;不适合 强关联性 实时通信&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+跨平台渲染&lt;/p&gt;
+
+&lt;p&gt;将细粒度的变化转为相应平台的API&lt;/p&gt;</content><author><name></name></author><summary type="html">尤雨溪live</summary></entry><entry><title type="html">Vue从零开始记录</title><link href="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html" rel="alternate" type="text/html" title="Vue从零开始记录" /><published>2017-05-28T14:59:24+08:00</published><updated>2017-05-28T14:59:24+08:00</updated><id>/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">&lt;p&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/p&gt;
 
 &lt;p&gt;解决方案：&lt;/p&gt;
 
@@ -121,32 +401,4 @@ webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？&lt;/p&
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">jekyll安装过程</title><link href="/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html" rel="alternate" type="text/html" title="jekyll安装过程" /><published>2017-04-13T14:59:24+08:00</published><updated>2017-04-13T14:59:24+08:00</updated><id>/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B</id><content type="html" xml:base="/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html">&lt;p&gt;Mac OS X El Capitan系统下安装jekyll：&lt;/p&gt;
-
-&lt;p&gt;1.sudo gem update –system(需要翻墙)&lt;/p&gt;
-
-&lt;p&gt;更新gem&lt;/p&gt;
-
-&lt;p&gt;oh my zsh翻墙：&lt;a href=&quot;https://pickcle.github.io/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html&quot;&gt;Oh My Zsh翻墙方法&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2.sudo gem install jekyll bundler&lt;/p&gt;
-
-&lt;p&gt;安装jekyll bundler&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://pickcle.github.io/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html&quot;&gt;Operation not permitted解决方法&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;3.jekyll new blog&lt;/p&gt;
-
-&lt;p&gt;在blog文件夹下创建一个新的jekyll项目&lt;/p&gt;
-
-&lt;p&gt;如果是导入了就项目，也必须走一遍这个过程，因为在新建项目时，会安装一堆gem库，如果不走这步，会有各种cannot find sass之类的报错&lt;/p&gt;
-
-&lt;p&gt;4.cd blog&lt;/p&gt;
-
-&lt;p&gt;5.bundle exec jekyll serve&lt;/p&gt;
-
-&lt;p&gt;启动jekyll服务&lt;/p&gt;
-
-&lt;p&gt;6.在浏览器打开http://localhost:4000&lt;/p&gt;
-
-&lt;p&gt;参考链接: &lt;a href=&quot;https://jekyllrb.com/docs/quickstart/&quot;&gt;https://jekyllrb.com/docs/quickstart/&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Mac OS X El Capitan系统下安装jekyll：</summary></entry></feed>
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
