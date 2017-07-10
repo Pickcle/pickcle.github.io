@@ -1,97 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-28T17:33:24+08:00</updated><id>http://localhost:4000/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
-</subtitle><entry><title type="html">npm发布包步骤</title><link href="http://localhost:4000/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>http://localhost:4000/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4</id><content type="html" xml:base="http://localhost:4000/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html">&lt;p&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-07-10T16:13:04+08:00</updated><id>http://localhost:4000/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
+</subtitle><entry><title type="html">ssh保存密码自动登录</title><link href="http://localhost:4000/npm/publish/github/2017/06/28/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html" rel="alternate" type="text/html" title="ssh保存密码自动登录" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>http://localhost:4000/npm/publish/github/2017/06/28/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/npm/publish/github/2017/06/28/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html">&lt;p&gt;使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤&lt;/p&gt;
 
-&lt;p&gt;Step.1 既然要在npm上发布，首先当然需要一个npm账号。&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;【npm】&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本机系统： OS X&lt;/p&gt;
 
-&lt;p&gt;Step.2 在自己的github上新建个仓库，本例中仓库名是arios，如果没有github账号，先注册一个。&lt;a href=&quot;https://github.com/&quot;&gt;【github】&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Step.3 将Step2中新建的仓库clone到本地。&lt;/p&gt;
-
-&lt;p&gt;Step.4 在项目目录下npm init，自己填入信息生成package.json文件。&lt;/p&gt;
-
-&lt;p&gt;Step.5 根据package.json中main对应的文件名，新建相应文件。比如main是index.js，则新建index.js，内容先随便写写&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = exports = {
-  name: 'arios'
-}
+&lt;p&gt;远程机系统： centos 6
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;本机生成RSA公私密钥对
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Step.6 准备提交代码到github，并打上tag，tag的版本号需要跟package.json中的version保持一致&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
-git commit -m 'first commit'
-git tag v1.0.0
-git push
-git push origin --tags
+    &lt;/div&gt;
+    &lt;p&gt;选项全部默认为是，最后会在~/.ssh文件夹生成id_rsa和id_rsa.pub两个文件
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;改变.ssh目录权限
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod 755 ~/.ssh
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在~/.ssh文件夹下创建config文件&lt;/p&gt;
 
-&lt;p&gt;Step.7 将仓库发布到npm，只需要一个简单的命令就行了&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm publish
+    &lt;p&gt;内容如下：&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Host [自定义别名]
+HostName [服务器ip地址]
+User [用户名]
+Port [服务器端口]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;如果是第一次publish，需要输入npm账号密码邮箱，以后就不需要了。&lt;/p&gt;
-
-&lt;p&gt;发布完成后，npm会以刚才tag的版本作为最新版本。&lt;/p&gt;
-
-&lt;p&gt;这样一个发布过程就完成了，要使用的时候，使用npm install arios，就会安装最新版本的包。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;如果之后需要发布新版本，也很简单。&lt;/p&gt;
-
-&lt;p&gt;Step.1 修改源文件后，将package.json中的version递增，版本号遵循semver规范。&lt;a href=&quot;https://gist.github.com/smallnest/666c88d3dc06774f5498&quot;&gt;【semver规范】&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Step.2 为本次提交打上版本tag，假设新版本号为1.0.1&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
-git commit -m 'sceond commit'
-git tag v1.0.1
-git push
-git push origin --tags
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;将公钥复制到远程机上
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-copy-id -i -p [端口] ~/.ssh/id_rsa/pub [用户名]@[ip地址]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Step.3 发布到npm&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm publish
+    &lt;/div&gt;
+    &lt;p&gt;这次还是需要输入密码的
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;连接上远程机
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh -p [端口] [用户名]@[ip地址]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;还可以为npm包做travis-CI来保持可靠性&lt;/p&gt;
-
-&lt;p&gt;Step.1 在github上fork&lt;a href=&quot;https://github.com/plaindocs/travis-broken-example&quot;&gt;【travis-broken-example】&lt;/a&gt;这个库&lt;/p&gt;
-
-&lt;p&gt;Step.2 用github关联登录&lt;a href=&quot;https://travis-ci.org/auth&quot;&gt;travis CI&lt;/a&gt;，允许授权&lt;/p&gt;
-
-&lt;p&gt;Step.3 在arios文件目录下新建.travis.yml文件，&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;language: node_js
-
-node_js:
-  - &quot;4&quot;
+    &lt;/div&gt;
+    &lt;p&gt;输入密码
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;打开sshd_config
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/ssh/sshd_config
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;上述文件表示使用node环境，用4.x版本进行build&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt;将以下几行前面的’#’去掉&lt;/p&gt;
 
-&lt;p&gt;Step.4 在&lt;a href=&quot;https://travis-ci.org/&quot;&gt;travis-ci&lt;/a&gt;官网上管理要build的仓库，在左边的My Repositories中进行管理。比如本例中将arios仓库的开关打开。&lt;/p&gt;
+    &lt;p&gt;RSAAuthentication yes&lt;/p&gt;
 
-&lt;p&gt;Step.5 在arios项目的package.json中，修改script中test命令，本例中直接删除&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp; exit 1&lt;/code&gt;，并push到github中&lt;/p&gt;
+    &lt;p&gt;PubkeyAuthentication yes&lt;/p&gt;
 
-&lt;p&gt;Step.6 travis重新build，成功，点击build passing图标，会出现一个弹窗，复制最下面的链接&lt;code class=&quot;highlighter-rouge&quot;&gt;https://travis-ci.org/Pickcle/arios.svg&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Step.7 在readme中添加&lt;code class=&quot;highlighter-rouge&quot;&gt;[![build status](https://travis-ci.org/Pickcle/arios.svg)](https://travis-ci.org/Pickcle/arios)&lt;/code&gt;，push到github，现在再看readme，就能看到build passing的图标了&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;过程中遇到的问题：&lt;/p&gt;
-
-&lt;p&gt;npm publish –tag v1.0.0 时报错：Tag name must not be a valid SemVer range: 1.0.0&lt;/p&gt;
-
-&lt;p&gt;这个报错是因为publish会自动将github仓库中的tag作为version，如果tag也使用v1.0.0，会导致冲突&lt;/p&gt;
-
-&lt;p&gt;npm publish时报错you do not have permission to publish “arios”. Are you logged in as the correct user?&lt;/p&gt;
-
-&lt;p&gt;这个报错很可能是因为arios这个包已经存在了，所以得换一个包名字再npm publish&lt;/p&gt;</content><author><name></name></author><summary type="html">最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下</summary></entry><entry><title type="html">npm发布包步骤</title><link href="http://localhost:4000/npm/publish/github/2017/06/28/bandwagon+wordpress+lamp%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>http://localhost:4000/npm/publish/github/2017/06/28/bandwagon+wordpress+lamp%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99</id><content type="html" xml:base="http://localhost:4000/npm/publish/github/2017/06/28/bandwagon+wordpress+lamp%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99.html">&lt;p&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/p&gt;
+    &lt;p&gt;AuthorizedKeysFile .ssh/authorized_keys
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;更改~/.ssh权限
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ~/.ssh
+chmod 600 authorized_keys
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;重启ssh
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;service sshd restart
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤</summary></entry><entry><title type="html">npm发布包步骤</title><link href="http://localhost:4000/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>http://localhost:4000/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4</id><content type="html" xml:base="http://localhost:4000/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html">&lt;p&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/p&gt;
 
 &lt;p&gt;Step.1 既然要在npm上发布，首先当然需要一个npm账号。&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;【npm】&lt;/a&gt;&lt;/p&gt;
 

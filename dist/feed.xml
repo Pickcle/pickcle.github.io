@@ -1,5 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-06-29T11:57:39+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
-</subtitle><entry><title type="html">npm发布包步骤</title><link href="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4</id><content type="html" xml:base="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html">&lt;p&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-07-10T16:13:47+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
+</subtitle><entry><title type="html">ssh保存密码自动登录</title><link href="/npm/publish/github/2017/06/28/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html" rel="alternate" type="text/html" title="ssh保存密码自动登录" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>/npm/publish/github/2017/06/28/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95</id><content type="html" xml:base="/npm/publish/github/2017/06/28/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html">&lt;p&gt;使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤&lt;/p&gt;
+
+&lt;p&gt;本机系统： OS X&lt;/p&gt;
+
+&lt;p&gt;远程机系统： centos 6
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;本机生成RSA公私密钥对
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;选项全部默认为是，最后会在~/.ssh文件夹生成id_rsa和id_rsa.pub两个文件
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;改变.ssh目录权限
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod 755 ~/.ssh
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在~/.ssh文件夹下创建config文件&lt;/p&gt;
+
+    &lt;p&gt;内容如下：&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Host [自定义别名]
+HostName [服务器ip地址]
+User [用户名]
+Port [服务器端口]
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;将公钥复制到远程机上
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-copy-id -i -p [端口] ~/.ssh/id_rsa/pub [用户名]@[ip地址]
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;这次还是需要输入密码的
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;连接上远程机
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh -p [端口] [用户名]@[ip地址]
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;输入密码
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;打开sshd_config
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/ssh/sshd_config
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;将以下几行前面的’#’去掉&lt;/p&gt;
+
+    &lt;p&gt;RSAAuthentication yes&lt;/p&gt;
+
+    &lt;p&gt;PubkeyAuthentication yes&lt;/p&gt;
+
+    &lt;p&gt;AuthorizedKeysFile .ssh/authorized_keys
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;更改~/.ssh权限
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ~/.ssh
+chmod 600 authorized_keys
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;重启ssh
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;service sshd restart
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤</summary></entry><entry><title type="html">npm发布包步骤</title><link href="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4</id><content type="html" xml:base="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html">&lt;p&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/p&gt;
 
 &lt;p&gt;Step.1 既然要在npm上发布，首先当然需要一个npm账号。&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;【npm】&lt;/a&gt;&lt;/p&gt;
 
@@ -309,32 +391,4 @@ webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？&lt;/p&
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">jekyll安装过程</title><link href="/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html" rel="alternate" type="text/html" title="jekyll安装过程" /><published>2017-04-13T14:59:24+08:00</published><updated>2017-04-13T14:59:24+08:00</updated><id>/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B</id><content type="html" xml:base="/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html">&lt;p&gt;Mac OS X El Capitan系统下安装jekyll：&lt;/p&gt;
-
-&lt;p&gt;1.sudo gem update –system(需要翻墙)&lt;/p&gt;
-
-&lt;p&gt;更新gem&lt;/p&gt;
-
-&lt;p&gt;oh my zsh翻墙：&lt;a href=&quot;https://pickcle.github.io/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html&quot;&gt;Oh My Zsh翻墙方法&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2.sudo gem install jekyll bundler&lt;/p&gt;
-
-&lt;p&gt;安装jekyll bundler&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://pickcle.github.io/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html&quot;&gt;Operation not permitted解决方法&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;3.jekyll new blog&lt;/p&gt;
-
-&lt;p&gt;在blog文件夹下创建一个新的jekyll项目&lt;/p&gt;
-
-&lt;p&gt;如果是导入了就项目，也必须走一遍这个过程，因为在新建项目时，会安装一堆gem库，如果不走这步，会有各种cannot find sass之类的报错&lt;/p&gt;
-
-&lt;p&gt;4.cd blog&lt;/p&gt;
-
-&lt;p&gt;5.bundle exec jekyll serve&lt;/p&gt;
-
-&lt;p&gt;启动jekyll服务&lt;/p&gt;
-
-&lt;p&gt;6.在浏览器打开http://localhost:4000&lt;/p&gt;
-
-&lt;p&gt;参考链接: &lt;a href=&quot;https://jekyllrb.com/docs/quickstart/&quot;&gt;https://jekyllrb.com/docs/quickstart/&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Mac OS X El Capitan系统下安装jekyll：</summary></entry></feed>
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
