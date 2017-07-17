@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "ssh保存密码自动登录"
-date:   2017-06-28 12:00:00 +0800
-categories: npm publish github
+date:   2017-07-10 12:00:00 +0800
+categories: ssh
 ---
 
 使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤
