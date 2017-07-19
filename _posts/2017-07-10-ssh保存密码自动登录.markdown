@@ -5,28 +5,22 @@ date:   2017-07-10 12:00:00 +0800
 categories: ssh
 ---
 
-使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤
+**使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤**
 
-本机系统： OS X
+**本机系统： OS X**
 
-远程机系统： centos 6
-<br>
-<br>
+**远程机系统： centos 6**
+
 * 本机生成RSA公私密钥对
   ```
   ssh-keygen
   ```
   选项全部默认为是，最后会在~/.ssh文件夹生成id_rsa和id_rsa.pub两个文件
-  <br>
-  <br>
 * 改变.ssh目录权限
   ```
   chmod 755 ~/.ssh
   ```
-  <br>
-  <br>
 * 在~/.ssh文件夹下创建config文件
-
   内容如下：
   ```
   Host [自定义别名]
@@ -34,46 +28,34 @@ categories: ssh
   User [用户名]
   Port [服务器端口]
   ```
-  <br>
-  <br>
 * 将公钥复制到远程机上
   ```
   ssh-copy-id -i -p [端口] ~/.ssh/id_rsa/pub [用户名]@[ip地址]
   ```
   这次还是需要输入密码的
-  <br>
-  <br>
 * 连接上远程机
   ```
   ssh -p [端口] [用户名]@[ip地址]
   ```
   输入密码
-  <br>
-  <br>
 * 打开sshd_config
   ```
   vi /etc/ssh/sshd_config
   ```
-  将以下几行前面的'#'去掉
-
+  将以下几行前面的'#'去掉  
+  ```
   RSAAuthentication yes
-
   PubkeyAuthentication yes
-
   AuthorizedKeysFile .ssh/authorized_keys
-  <br>
-  <br>
+  ```
 * 更改~/.ssh权限
   ```
   cd ~/.ssh
   chmod 600 authorized_keys
   ```
-  <br>
-  <br>
 * 重启ssh
   ```
   service sshd restart
   ```
-  <br>
-  <br>
-回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了
+
+**回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了**
