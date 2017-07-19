@@ -1,5 +1,238 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-06-29T11:57:39+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
-</subtitle><entry><title type="html">npm发布包步骤</title><link href="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4</id><content type="html" xml:base="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html">&lt;p&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-07-19T10:59:13+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
+</subtitle><entry><title type="html">使用vps+nodejs+nginx+mongodb搭建个人网站</title><link href="/vps/nodejs/nginx/mongodb/vue/bandwagon/blog/2017/07/17/%E4%BD%BF%E7%94%A8vps+nodejs+nginx+mongodb%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html" rel="alternate" type="text/html" title="使用vps+nodejs+nginx+mongodb搭建个人网站" /><published>2017-07-17T12:00:00+08:00</published><updated>2017-07-17T12:00:00+08:00</updated><id>/vps/nodejs/nginx/mongodb/vue/bandwagon/blog/2017/07/17/%E4%BD%BF%E7%94%A8vps+nodejs+nginx+mongodb%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99</id><content type="html" xml:base="/vps/nodejs/nginx/mongodb/vue/bandwagon/blog/2017/07/17/%E4%BD%BF%E7%94%A8vps+nodejs+nginx+mongodb%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html">&lt;p&gt;之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。&lt;/p&gt;
+
+&lt;p&gt;这篇文章记录了从零开始搭建一个使用vps+nodejs+nginx的个人网站。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;准备工作：&lt;/p&gt;</content><author><name></name></author><summary type="html">之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。</summary></entry><entry><title type="html">ssh保存密码自动登录</title><link href="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%950.html" rel="alternate" type="text/html" title="ssh保存密码自动登录" /><published>2017-07-10T12:00:00+08:00</published><updated>2017-07-10T12:00:00+08:00</updated><id>/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%950</id><content type="html" xml:base="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%950.html">&lt;h1 id=&quot;如何转换markdown到htmldocpdfppt格式&quot;&gt;如何转换Markdown到html/doc/pdf/ppt格式&lt;/h1&gt;
+
+&lt;h2 id=&quot;内容大纲&quot;&gt;内容大纲&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Markdown格式简介
+    &lt;ul&gt;
+      &lt;li&gt;标题&lt;/li&gt;
+      &lt;li&gt;列表&lt;/li&gt;
+      &lt;li&gt;内容&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;格式转换工具使用
+    &lt;ul&gt;
+      &lt;li&gt;pandoc&lt;/li&gt;
+      &lt;li&gt;xelatex&lt;/li&gt;
+      &lt;li&gt;unoconv&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;几个实用转换范例
+    &lt;ul&gt;
+      &lt;li&gt;md -&amp;gt; html, doc, pdf, ppt&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;./figures/1.1.png&quot; alt=&quot;markdown logo&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;markdown-目录结构&quot;&gt;Markdown 目录结构&lt;/h2&gt;
+&lt;h3 id=&quot;标题&quot;&gt;标题&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;一级/二级/三级/四级
+    &lt;h1 id=&quot;一级标题&quot;&gt;一级标题&lt;/h1&gt;
+    &lt;h2 id=&quot;二级标题&quot;&gt;二级标题&lt;/h2&gt;
+    &lt;h3 id=&quot;三级标题&quot;&gt;三级标题&lt;/h3&gt;
+    &lt;h4 id=&quot;四级标题&quot;&gt;四级标题&lt;/h4&gt;
+  &lt;/li&gt;
+  &lt;li&gt;还有一种写法&lt;br /&gt;
+  一级标题&lt;br /&gt;
+  =========&lt;br /&gt;
+  二级标题&lt;br /&gt;
+  ———&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;列表&quot;&gt;列表&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;星号(实心圆点)
+    &lt;ul&gt;
+      &lt;li&gt;减号(空心圆点)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;markdown-正文内容&quot;&gt;Markdown 正文内容&lt;/h2&gt;
+&lt;h3 id=&quot;内容&quot;&gt;内容&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;黑体/斜体&lt;br /&gt;
+  这是一段 &lt;strong&gt;黑体&lt;/strong&gt; 文字&lt;br /&gt;
+  这是一段 &lt;em&gt;斜体&lt;/em&gt; 文字&lt;/li&gt;
+  &lt;li&gt;超链接&lt;br /&gt;
+  欢迎访问我的微博 &lt;a href=&quot;http://weibo.com/limingth&quot;&gt;http://weibo.com/limingth&lt;/a&gt;&lt;br /&gt;
+  请关注 &lt;a href=&quot;http://weibo.com/limingth&quot;&gt;@亚嵌李明老师&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;换行&lt;br /&gt;
+  可以在行尾输入2个空格&lt;br /&gt;
+  就可以实现换行功能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;markdown-代码引用&quot;&gt;Markdown 代码引用&lt;/h2&gt;
+&lt;h3 id=&quot;代码&quot;&gt;代码&lt;/h3&gt;
+&lt;p&gt;使用1或2个TAB可以引用大段的代码保持原有缩进格式&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+
+int main(void)
+{
+	printf(&quot;hello, world\n&quot;);
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;格式转换工具使用&quot;&gt;格式转换工具使用&lt;/h2&gt;
+&lt;h3 id=&quot;工具安装&quot;&gt;工具安装&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;sudo apt-get install pandoc&lt;/li&gt;
+  &lt;li&gt;sudo apt-get install texlive&lt;/li&gt;
+  &lt;li&gt;sudo apt-get install xelatex&lt;/li&gt;
+  &lt;li&gt;sudo apt-get install unoconv&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;几个实用转换范例&quot;&gt;几个实用转换范例&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;md-&amp;gt;html  &lt;a href=&quot;https://github.com/limingth/share/tree/master/markdown-demo/demo.html&quot;&gt;(demo.html)&lt;/a&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  pandoc --ascii -f markdown -t html -o demo.html demo.md  
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;md-&amp;gt;doc  &lt;a href=&quot;https://github.com/limingth/share/tree/master/markdown-demo/demo.doc&quot;&gt;(demo.doc)&lt;/a&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  pandoc demo.md -o demo.doc
+      (目录无数字标题1.1.1)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;md-&amp;gt;doc-&amp;gt;pdf  &lt;a href=&quot;https://github.com/limingth/share/tree/master/markdown-demo/demo.pdf&quot;&gt;(demo.pdf)&lt;/a&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  unoconv -f pdf demo.doc
+      (目录无数字标题1.1.1)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;md-&amp;gt;tex-&amp;gt;doc.pdf  &lt;a href=&quot;https://github.com/limingth/share/tree/master/markdown-demo/demo.doc.pdf&quot;&gt;(demo.doc.pdf)&lt;/a&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  pandoc demo.md -o demo2doc.tex
+  xelatex demo.doc.tex
+      (demo.doc.tex 是自制doc tex模板文件, 自动生成数字标题1.1.1)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;md-&amp;gt;tex-&amp;gt;ppt.pdf  &lt;a href=&quot;https://github.com/limingth/share/tree/master/markdown-demo/demo.ppt.pdf&quot;&gt;(demo.ppt.pdf)&lt;/a&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  pandoc -t beamer --slide-level 2 demo.md -o demo.tex
+  xelatex demo.ppt.tex
+      (demo.ppt.tex 是自制ppt tex模板文件)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;参考资料&quot;&gt;参考资料&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Pandoc语法详解 &lt;a href=&quot;http://johnmacfarlane.net/pandoc/demos.html&quot;&gt;http://johnmacfarlane.net/pandoc/demos.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;pandoc是什么 &lt;a href=&quot;http://yanping.me/cn/blog/2012/03/13/pandoc/&quot;&gt;http://yanping.me/cn/blog/2012/03/13/pandoc/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Markdown写作进阶 &lt;a href=&quot;http://www.yangzhiping.com/tech/pandoc.html&quot;&gt;http://www.yangzhiping.com/tech/pandoc.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;unoconv用法参数 &lt;a href=&quot;http://t.cn/zYBW9w2&quot;&gt;http://t.cn/zYBW9w2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;latex学习视频课程 &lt;a href=&quot;http://www.happycasts.net/episodes/19?autoplay=true&quot;&gt;http://www.happycasts.net/episodes/19?autoplay=true&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;beamer theme快速查看 &lt;a href=&quot;http://www.hartwork.org/beamer-theme-matrix/&quot;&gt;http://www.hartwork.org/beamer-theme-matrix/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;thanks&quot;&gt;Thanks&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;./figures/1.2.jpg&quot; alt=&quot;Questions&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">如何转换Markdown到html/doc/pdf/ppt格式</summary></entry><entry><title type="html">ssh保存密码自动登录</title><link href="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html" rel="alternate" type="text/html" title="ssh保存密码自动登录" /><published>2017-07-10T12:00:00+08:00</published><updated>2017-07-10T12:00:00+08:00</updated><id>/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95</id><content type="html" xml:base="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html">&lt;p&gt;使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤&lt;/p&gt;
+
+&lt;p&gt;本机系统： OS X&lt;/p&gt;
+
+&lt;p&gt;远程机系统： centos 6
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;本机生成RSA公私密钥对
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;选项全部默认为是，最后会在~/.ssh文件夹生成id_rsa和id_rsa.pub两个文件
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;改变.ssh目录权限
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod 755 ~/.ssh
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在~/.ssh文件夹下创建config文件&lt;/p&gt;
+
+    &lt;p&gt;内容如下：&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Host [自定义别名]
+HostName [服务器ip地址]
+User [用户名]
+Port [服务器端口]
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;将公钥复制到远程机上
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-copy-id -i -p [端口] ~/.ssh/id_rsa/pub [用户名]@[ip地址]
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;这次还是需要输入密码的
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;连接上远程机
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh -p [端口] [用户名]@[ip地址]
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;输入密码
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;打开sshd_config
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/ssh/sshd_config
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;将以下几行前面的’#’去掉&lt;/p&gt;
+
+    &lt;p&gt;RSAAuthentication yes&lt;/p&gt;
+
+    &lt;p&gt;PubkeyAuthentication yes&lt;/p&gt;
+
+    &lt;p&gt;AuthorizedKeysFile .ssh/authorized_keys
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;更改~/.ssh权限
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ~/.ssh
+chmod 600 authorized_keys
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;重启ssh
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;service sshd restart
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤</summary></entry><entry><title type="html">npm发布包步骤</title><link href="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4</id><content type="html" xml:base="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html">&lt;p&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/p&gt;
 
 &lt;p&gt;Step.1 既然要在npm上发布，首先当然需要一个npm账号。&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;【npm】&lt;/a&gt;&lt;/p&gt;
 
@@ -91,7 +324,7 @@ node_js:
 
 &lt;p&gt;npm publish时报错you do not have permission to publish “arios”. Are you logged in as the correct user?&lt;/p&gt;
 
-&lt;p&gt;这个报错很可能是因为arios这个包已经存在了，所以得换一个包名字再npm publish&lt;/p&gt;</content><author><name></name></author><summary type="html">最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下</summary></entry><entry><title type="html">尤雨溪知乎live摘要</title><link href="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html" rel="alternate" type="text/html" title="尤雨溪知乎live摘要" /><published>2017-06-15T14:59:24+08:00</published><updated>2017-06-15T14:59:24+08:00</updated><id>/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81</id><content type="html" xml:base="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html">&lt;p&gt;尤雨溪live&lt;/p&gt;
+&lt;p&gt;这个报错很可能是因为arios这个包已经存在了，所以得换一个包名字再npm publish&lt;/p&gt;</content><author><name></name></author><summary type="html">最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下</summary></entry><entry><title type="html">尤雨溪知乎live摘要</title><link href="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html" rel="alternate" type="text/html" title="尤雨溪知乎live摘要" /><published>2017-06-15T12:00:00+08:00</published><updated>2017-06-15T12:00:00+08:00</updated><id>/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81</id><content type="html" xml:base="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html">&lt;p&gt;尤雨溪live&lt;/p&gt;
 
 &lt;p&gt;组件：基本抽象单元，页面-&amp;gt;组件树，react揭示了组件可以是函数，&lt;/p&gt;
 
@@ -187,7 +420,7 @@ CSS&lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;
 跨平台渲染&lt;/p&gt;
 
-&lt;p&gt;将细粒度的变化转为相应平台的API&lt;/p&gt;</content><author><name></name></author><summary type="html">尤雨溪live</summary></entry><entry><title type="html">Vue从零开始记录</title><link href="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html" rel="alternate" type="text/html" title="Vue从零开始记录" /><published>2017-05-28T14:59:24+08:00</published><updated>2017-05-28T14:59:24+08:00</updated><id>/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">&lt;p&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/p&gt;
+&lt;p&gt;将细粒度的变化转为相应平台的API&lt;/p&gt;</content><author><name></name></author><summary type="html">尤雨溪live</summary></entry><entry><title type="html">Vue从零开始记录</title><link href="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html" rel="alternate" type="text/html" title="Vue从零开始记录" /><published>2017-05-28T12:00:00+08:00</published><updated>2017-05-28T12:00:00+08:00</updated><id>/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">&lt;p&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/p&gt;
 
 &lt;p&gt;解决方案：&lt;/p&gt;
 
@@ -199,10 +432,7 @@ CSS&lt;/p&gt;
 &lt;br /&gt;
 Vue warn: Error compiling template:&lt;/p&gt;
 
-&lt;div id=&quot;app&quot;&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;app-46fdf745b7df8bcb9dd2.js&quot;&gt;&lt;/script&gt;&lt;/div&gt;
-
-&lt;p&gt;Templates should only be responsible for mapping the state to the UI. Avoid placing tags with side-effects in your templates, such as &lt;script&gt;, as they will not be parsed.&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;Templates should only be responsible for mapping the state to the UI. Avoid placing tags with side-effects in your templates, such as *&lt;script&gt;*, as they will not be parsed.&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;解决方案：&lt;/p&gt;
 
@@ -260,15 +490,15 @@ webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？&lt;/p&
     &lt;span class=&quot;s1&quot;&gt;'./hotMiddlewareClient'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SRC_PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'index.js'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry><entry><title type="html">Vue warn: You are using the runtime-only build of Vue</title><link href="/vue/2017/05/28/Vue-runtime-only-build.html" rel="alternate" type="text/html" title="Vue warn: You are using the runtime-only build of Vue" /><published>2017-05-28T14:59:24+08:00</published><updated>2017-05-28T14:59:24+08:00</updated><id>/vue/2017/05/28/Vue-runtime-only-build</id><content type="html" xml:base="/vue/2017/05/28/Vue-runtime-only-build.html">&lt;p&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/p&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry><entry><title type="html">Vue warn: You are using the runtime-only build of Vue</title><link href="/vue/2017/05/28/Vue-runtime-only-build.html" rel="alternate" type="text/html" title="Vue warn: You are using the runtime-only build of Vue" /><published>2017-05-28T12:00:00+08:00</published><updated>2017-05-28T12:00:00+08:00</updated><id>/vue/2017/05/28/Vue-runtime-only-build</id><content type="html" xml:base="/vue/2017/05/28/Vue-runtime-only-build.html">&lt;p&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/p&gt;
 
 &lt;p&gt;解决方案：&lt;/p&gt;
 
-&lt;p&gt;node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了&lt;/p&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry><entry><title type="html">webpack打包报错TypeError: $export is not a function</title><link href="/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html" rel="alternate" type="text/html" title="webpack打包报错TypeError: $export is not a function" /><published>2017-05-28T14:59:24+08:00</published><updated>2017-05-28T14:59:24+08:00</updated><id>/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError:%20$export-is-not-a-function</id><content type="html" xml:base="/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html">&lt;p&gt;webpack打包时报错TypeError: $export is not a function&lt;/p&gt;
+&lt;p&gt;node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了&lt;/p&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry><entry><title type="html">webpack打包报错TypeError: $export is not a function</title><link href="/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html" rel="alternate" type="text/html" title="webpack打包报错TypeError: $export is not a function" /><published>2017-05-28T12:00:00+08:00</published><updated>2017-05-28T12:00:00+08:00</updated><id>/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError:%20$export-is-not-a-function</id><content type="html" xml:base="/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html">&lt;p&gt;webpack打包时报错TypeError: $export is not a function&lt;/p&gt;
 
 &lt;p&gt;解决方案：&lt;/p&gt;
 
-&lt;p&gt;webpack.config.js中,loaders中的babel-loader需要加一行exclude: /node_modules/&lt;/p&gt;</content><author><name></name></author><summary type="html">webpack打包时报错TypeError: $export is not a function</summary></entry><entry><title type="html">atom安装插件失败解决方案</title><link href="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html" rel="alternate" type="text/html" title="atom安装插件失败解决方案" /><published>2017-05-12T14:59:24+08:00</published><updated>2017-05-12T14:59:24+08:00</updated><id>/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</id><content type="html" xml:base="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">&lt;p&gt;在windows系统中打开atom，安装package失败，错误码404&lt;/p&gt;
+&lt;p&gt;webpack.config.js中,loaders中的babel-loader需要加一行exclude: /node_modules/&lt;/p&gt;</content><author><name></name></author><summary type="html">webpack打包时报错TypeError: $export is not a function</summary></entry><entry><title type="html">atom安装插件失败解决方案</title><link href="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html" rel="alternate" type="text/html" title="atom安装插件失败解决方案" /><published>2017-05-12T12:00:00+08:00</published><updated>2017-05-12T12:00:00+08:00</updated><id>/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</id><content type="html" xml:base="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">&lt;p&gt;在windows系统中打开atom，安装package失败，错误码404&lt;/p&gt;
 
 &lt;p&gt;解决方案：&lt;/p&gt;
 
@@ -287,54 +517,4 @@ webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？&lt;/p&
 
 &lt;p&gt;默认安装目录是/usr/bin，将安装目录改成/usr/local/bin，可以绕过SIP检测&lt;/p&gt;
 
-&lt;p&gt;参考链接: &lt;a href=&quot;http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11&quot;&gt;http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">使用sudo gem install jekyll bundler安装jekyll时发生错误:</summary></entry><entry><title type="html">Oh My Zsh翻墙方案</title><link href="/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html" rel="alternate" type="text/html" title="Oh My Zsh翻墙方案" /><published>2017-04-13T15:10:24+08:00</published><updated>2017-04-13T15:10:24+08:00</updated><id>/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88</id><content type="html" xml:base="/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html">&lt;p&gt;1.终端输入vim ~/.zshrc，查看Oh My Zsh的配置文件&lt;/p&gt;
-
-&lt;p&gt;2.添加以下内容:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# socks5代理&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;alias&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setproxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;export all_proxy=socks5://127.0.0.1:1080&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;alias&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unsetproxy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;unset all_proxy&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;3.保存退出vim，重启终端&lt;/p&gt;
-
-&lt;p&gt;4.输入setproxy命令，启用socks5代理进行翻墙&lt;/p&gt;</content><author><name></name></author><summary type="html">1.终端输入vim ~/.zshrc，查看Oh My Zsh的配置文件</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2017/04/13/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-04-13T14:59:24+08:00</published><updated>2017-04-13T14:59:24+08:00</updated><id>/jekyll/update/2017/04/13/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2017/04/13/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">jekyll安装过程</title><link href="/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html" rel="alternate" type="text/html" title="jekyll安装过程" /><published>2017-04-13T14:59:24+08:00</published><updated>2017-04-13T14:59:24+08:00</updated><id>/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B</id><content type="html" xml:base="/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html">&lt;p&gt;Mac OS X El Capitan系统下安装jekyll：&lt;/p&gt;
-
-&lt;p&gt;1.sudo gem update –system(需要翻墙)&lt;/p&gt;
-
-&lt;p&gt;更新gem&lt;/p&gt;
-
-&lt;p&gt;oh my zsh翻墙：&lt;a href=&quot;https://pickcle.github.io/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html&quot;&gt;Oh My Zsh翻墙方法&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2.sudo gem install jekyll bundler&lt;/p&gt;
-
-&lt;p&gt;安装jekyll bundler&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://pickcle.github.io/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html&quot;&gt;Operation not permitted解决方法&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;3.jekyll new blog&lt;/p&gt;
-
-&lt;p&gt;在blog文件夹下创建一个新的jekyll项目&lt;/p&gt;
-
-&lt;p&gt;如果是导入了就项目，也必须走一遍这个过程，因为在新建项目时，会安装一堆gem库，如果不走这步，会有各种cannot find sass之类的报错&lt;/p&gt;
-
-&lt;p&gt;4.cd blog&lt;/p&gt;
-
-&lt;p&gt;5.bundle exec jekyll serve&lt;/p&gt;
-
-&lt;p&gt;启动jekyll服务&lt;/p&gt;
-
-&lt;p&gt;6.在浏览器打开http://localhost:4000&lt;/p&gt;
-
-&lt;p&gt;参考链接: &lt;a href=&quot;https://jekyllrb.com/docs/quickstart/&quot;&gt;https://jekyllrb.com/docs/quickstart/&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Mac OS X El Capitan系统下安装jekyll：</summary></entry></feed>
+&lt;p&gt;参考链接: &lt;a href=&quot;http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11&quot;&gt;http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">使用sudo gem install jekyll bundler安装jekyll时发生错误:</summary></entry></feed>

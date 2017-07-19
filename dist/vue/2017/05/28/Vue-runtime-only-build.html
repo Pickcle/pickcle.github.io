@@ -69,7 +69,7 @@
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">Vue warn: You are using the runtime-only build of Vue</h1>
     <p class="post-meta">
-      <time datetime="2017-05-28T14:59:24+08:00" itemprop="datePublished">
+      <time datetime="2017-05-28T12:00:00+08:00" itemprop="datePublished">
         
         May 28, 2017
       </time>
@@ -77,11 +77,12 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</p>
+    <p><strong>Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</strong></p>
 
-<p>解决方案：</p>
-
-<p>node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了</p>
+<p><strong>解决方案：</strong></p>
+<ul>
+  <li>node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了</li>
+</ul>
 
   </div>
 
