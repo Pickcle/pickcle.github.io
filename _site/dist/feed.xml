@@ -517,4 +517,4 @@ webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？&lt;/p&
 
 &lt;p&gt;默认安装目录是/usr/bin，将安装目录改成/usr/local/bin，可以绕过SIP检测&lt;/p&gt;
 
-&lt;p&gt;参考链接: &lt;a href=&quot;http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11&quot;&gt;http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">使用sudo gem install jekyll bundler安装jekyll时发生错误:</summary></entry></feed>
+&lt;p&gt;参考链接： &lt;a href=&quot;http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11&quot;&gt;http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">使用sudo gem install jekyll bundler安装jekyll时发生错误:</summary></entry></feed>
