@@ -30,7 +30,7 @@ categories: ssh
   ```
 * 将公钥复制到远程机上
   ```
-  ssh-copy-id -i -p [端口] ~/.ssh/id_rsa/pub [用户名]@[ip地址]
+  ssh-copy-id -i ~/.ssh/id_rsa.pub -p [端口] [用户名]@[ip地址]
   ```
   这次还是需要输入密码的
 * 连接上远程机
