@@ -28,6 +28,10 @@ categories: ssh
   User [用户名]
   Port [服务器端口]
   ```
+  如果想要ssh保持长连接，在config后面添加
+  ```
+  ServerAliveInterval 60
+  ```
 * 将公钥复制到远程机上
   ```
   ssh-copy-id -i ~/.ssh/id_rsa.pub -p [端口] [用户名]@[ip地址]

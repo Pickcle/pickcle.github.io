@@ -1,11 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-07-19T10:59:13+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
-</subtitle><entry><title type="html">使用vps+nodejs+nginx+mongodb搭建个人网站</title><link href="/vps/nodejs/nginx/mongodb/vue/bandwagon/blog/2017/07/17/%E4%BD%BF%E7%94%A8vps+nodejs+nginx+mongodb%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html" rel="alternate" type="text/html" title="使用vps+nodejs+nginx+mongodb搭建个人网站" /><published>2017-07-17T12:00:00+08:00</published><updated>2017-07-17T12:00:00+08:00</updated><id>/vps/nodejs/nginx/mongodb/vue/bandwagon/blog/2017/07/17/%E4%BD%BF%E7%94%A8vps+nodejs+nginx+mongodb%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99</id><content type="html" xml:base="/vps/nodejs/nginx/mongodb/vue/bandwagon/blog/2017/07/17/%E4%BD%BF%E7%94%A8vps+nodejs+nginx+mongodb%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html">&lt;p&gt;之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-07-25T16:01:26+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
+</subtitle><entry><title type="html">centos6系统安装常用软件</title><link href="/centos6/2017/07/24/centos6%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6.html" rel="alternate" type="text/html" title="centos6系统安装常用软件" /><published>2017-07-24T12:00:00+08:00</published><updated>2017-07-24T12:00:00+08:00</updated><id>/centos6/2017/07/24/centos6%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6</id><content type="html" xml:base="/centos6/2017/07/24/centos6%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6.html">&lt;p&gt;&lt;strong&gt;最近VPS重装系统了，记录一下需要用到的常用的软件&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;这篇文章记录了从零开始搭建一个使用vps+nodejs+nginx的个人网站。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;准备工作：&lt;/p&gt;</content><author><name></name></author><summary type="html">之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。</summary></entry><entry><title type="html">ssh保存密码自动登录</title><link href="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%950.html" rel="alternate" type="text/html" title="ssh保存密码自动登录" /><published>2017-07-10T12:00:00+08:00</published><updated>2017-07-10T12:00:00+08:00</updated><id>/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%950</id><content type="html" xml:base="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%950.html">&lt;h1 id=&quot;如何转换markdown到htmldocpdfppt格式&quot;&gt;如何转换Markdown到html/doc/pdf/ppt格式&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;可以直接用yum安装的：
+    &lt;ul&gt;
+      &lt;li&gt;git：
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum install git
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;需要下载源码安装的：
+    &lt;ul&gt;
+      &lt;li&gt;gcc:
+  先安装依赖库
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum install zip unzip
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  wget http://gcc.skazkaforyou.com/releases/gcc-4.8.2/gcc-4.8.2.tar.gz
+  tar -zxvf gcc-4.8.2.tar.gz
+  cd gcc-4.8.2
+  // 安装依赖库
+  ./contrib/download_prerequisites
+  ./configure
+  make
+  make install
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;node/npm:&lt;br /&gt;
+  先安装make等相应工具
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum install gcc make gcc-c++ openssl-devel wget
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum -y install
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;p&gt;下载并解压node源码，这里以8.0.0版本为例&lt;/p&gt;
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  wget http://nodejs.org/dist/v8.0.0/node-v8.0.0.tar.gz
+  tar -zxvf node-v8.0.0.tar.gz
+  cd node-v8.0.0
+  ./configure
+  make &amp;amp;&amp;amp; make install
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">最近VPS重装系统了，记录一下需要用到的常用的软件</summary></entry><entry><title type="html">markdown语法</title><link href="/markdown/2017/07/18/markdown%E8%AF%AD%E6%B3%95.html" rel="alternate" type="text/html" title="markdown语法" /><published>2017-07-18T12:00:00+08:00</published><updated>2017-07-18T12:00:00+08:00</updated><id>/markdown/2017/07/18/markdown%E8%AF%AD%E6%B3%95</id><content type="html" xml:base="/markdown/2017/07/18/markdown%E8%AF%AD%E6%B3%95.html">&lt;h1 id=&quot;如何转换markdown到htmldocpdfppt格式&quot;&gt;如何转换Markdown到html/doc/pdf/ppt格式&lt;/h1&gt;
 
 &lt;h2 id=&quot;内容大纲&quot;&gt;内容大纲&lt;/h2&gt;
 &lt;ul&gt;
@@ -150,181 +193,156 @@ int main(void)
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;thanks&quot;&gt;Thanks&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;./figures/1.2.jpg&quot; alt=&quot;Questions&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">如何转换Markdown到html/doc/pdf/ppt格式</summary></entry><entry><title type="html">ssh保存密码自动登录</title><link href="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html" rel="alternate" type="text/html" title="ssh保存密码自动登录" /><published>2017-07-10T12:00:00+08:00</published><updated>2017-07-10T12:00:00+08:00</updated><id>/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95</id><content type="html" xml:base="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html">&lt;p&gt;使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./figures/1.2.jpg&quot; alt=&quot;Questions&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">如何转换Markdown到html/doc/pdf/ppt格式</summary></entry><entry><title type="html">使用vps+nodejs+nginx+mongodb搭建个人网站</title><link href="/vps/nodejs/nginx/mongodb/vue/bandwagon/blog/2017/07/17/%E4%BD%BF%E7%94%A8vps+nodejs+nginx+mongodb%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html" rel="alternate" type="text/html" title="使用vps+nodejs+nginx+mongodb搭建个人网站" /><published>2017-07-17T12:00:00+08:00</published><updated>2017-07-17T12:00:00+08:00</updated><id>/vps/nodejs/nginx/mongodb/vue/bandwagon/blog/2017/07/17/%E4%BD%BF%E7%94%A8vps+nodejs+nginx+mongodb%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99</id><content type="html" xml:base="/vps/nodejs/nginx/mongodb/vue/bandwagon/blog/2017/07/17/%E4%BD%BF%E7%94%A8vps+nodejs+nginx+mongodb%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html">&lt;p&gt;之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。&lt;/p&gt;
 
-&lt;p&gt;本机系统： OS X&lt;/p&gt;
+&lt;p&gt;这篇文章记录了从零开始搭建一个使用vps+nodejs+nginx的个人网站。&lt;/p&gt;
 
-&lt;p&gt;远程机系统： centos 6
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;准备工作：&lt;/p&gt;</content><author><name></name></author><summary type="html">之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。</summary></entry><entry><title type="html">ssh保存密码自动登录</title><link href="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html" rel="alternate" type="text/html" title="ssh保存密码自动登录" /><published>2017-07-10T12:00:00+08:00</published><updated>2017-07-10T12:00:00+08:00</updated><id>/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95</id><content type="html" xml:base="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html">&lt;p&gt;&lt;strong&gt;使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;本机系统： OS X&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;远程机系统： centos 6&lt;/strong&gt;&lt;/p&gt;
+
 &lt;ul&gt;
   &lt;li&gt;本机生成RSA公私密钥对
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
-    &lt;p&gt;选项全部默认为是，最后会在~/.ssh文件夹生成id_rsa和id_rsa.pub两个文件
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+    &lt;p&gt;选项全部默认为是，最后会在~/.ssh文件夹生成id_rsa和id_rsa.pub两个文件&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;改变.ssh目录权限
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod 755 ~/.ssh
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
-    &lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;在~/.ssh文件夹下创建config文件&lt;/p&gt;
-
-    &lt;p&gt;内容如下：&lt;/p&gt;
+  &lt;li&gt;在~/.ssh文件夹下创建config文件
+内容如下：
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Host [自定义别名]
 HostName [服务器ip地址]
 User [用户名]
 Port [服务器端口]
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
-    &lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;将公钥复制到远程机上
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-copy-id -i -p [端口] ~/.ssh/id_rsa/pub [用户名]@[ip地址]
+    &lt;p&gt;如果想要ssh保持长连接，在config后面添加&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ServerAliveInterval 60
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
-    &lt;p&gt;这次还是需要输入密码的
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;将公钥复制到远程机上
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-copy-id -i ~/.ssh/id_rsa.pub -p [端口] [用户名]@[ip地址]
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;这次还是需要输入密码的&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;连接上远程机
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh -p [端口] [用户名]@[ip地址]
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
-    &lt;p&gt;输入密码
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+    &lt;p&gt;输入密码&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;打开sshd_config
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/ssh/sshd_config
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
     &lt;p&gt;将以下几行前面的’#’去掉&lt;/p&gt;
-
-    &lt;p&gt;RSAAuthentication yes&lt;/p&gt;
-
-    &lt;p&gt;PubkeyAuthentication yes&lt;/p&gt;
-
-    &lt;p&gt;AuthorizedKeysFile .ssh/authorized_keys
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;更改~/.ssh权限
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ~/.ssh
 chmod 600 authorized_keys
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
-    &lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;重启ssh
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;service sshd restart
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
-    &lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤</summary></entry><entry><title type="html">npm发布包步骤</title><link href="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4</id><content type="html" xml:base="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html">&lt;p&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/p&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Step.1 既然要在npm上发布，首先当然需要一个npm账号。&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;【npm】&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Step.2 在自己的github上新建个仓库，本例中仓库名是arios，如果没有github账号，先注册一个。&lt;a href=&quot;https://github.com/&quot;&gt;【github】&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Step.3 将Step2中新建的仓库clone到本地。&lt;/p&gt;
-
-&lt;p&gt;Step.4 在项目目录下npm init，自己填入信息生成package.json文件。&lt;/p&gt;
-
-&lt;p&gt;Step.5 根据package.json中main对应的文件名，新建相应文件。比如main是index.js，则新建index.js，内容先随便写写&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = exports = {
+&lt;p&gt;&lt;strong&gt;回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤</summary></entry><entry><title type="html">npm发布包步骤</title><link href="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4</id><content type="html" xml:base="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html">&lt;p&gt;&lt;strong&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;既然要在npm上发布，首先当然需要一个npm账号。&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;【npm】&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;在自己的github上新建个仓库，本例中仓库名是arios，如果没有github账号，先注册一个。&lt;a href=&quot;https://github.com/&quot;&gt;【github】&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;将Step2中新建的仓库clone到本地。&lt;/li&gt;
+  &lt;li&gt;在项目目录下npm init，自己填入信息生成package.json文件。&lt;/li&gt;
+  &lt;li&gt;根据package.json中main对应的文件名，新建相应文件。比如main是index.js，则新建index.js，内容先随便写写
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;module.exports = exports = {
   name: 'arios'
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Step.6 准备提交代码到github，并打上tag，tag的版本号需要跟package.json中的version保持一致&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;准备提交代码到github，并打上tag，tag的版本号需要跟package.json中的version保持一致
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
 git commit -m 'first commit'
 git tag v1.0.0
 git push
 git push origin --tags
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Step.7 将仓库发布到npm，只需要一个简单的命令就行了&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm publish
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;将仓库发布到npm，只需要一个简单的命令就行了
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm publish
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;如果是第一次publish，需要输入npm账号密码邮箱，以后就不需要了。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt;如果是第一次publish，需要输入npm账号密码邮箱，以后就不需要了。&lt;br /&gt;
+发布完成后，npm会以刚才tag的版本作为最新版本。&lt;br /&gt;
+这样一个发布过程就完成了，要使用的时候，使用npm install arios，就会安装最新版本的包。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;发布完成后，npm会以刚才tag的版本作为最新版本。&lt;/p&gt;
-
-&lt;p&gt;这样一个发布过程就完成了，要使用的时候，使用npm install arios，就会安装最新版本的包。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;如果之后需要发布新版本，也很简单。&lt;/p&gt;
-
-&lt;p&gt;Step.1 修改源文件后，将package.json中的version递增，版本号遵循semver规范。&lt;a href=&quot;https://gist.github.com/smallnest/666c88d3dc06774f5498&quot;&gt;【semver规范】&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Step.2 为本次提交打上版本tag，假设新版本号为1.0.1&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
+&lt;p&gt;&lt;strong&gt;如果之后需要发布新版本，也很简单。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;修改源文件后，将package.json中的version递增，版本号遵循&lt;a href=&quot;https://gist.github.com/smallnest/666c88d3dc06774f5498&quot;&gt;semver规范&lt;/a&gt;。&lt;/li&gt;
+  &lt;li&gt;为本次提交打上版本tag，假设新版本号为1.0.1
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add .
 git commit -m 'sceond commit'
 git tag v1.0.1
 git push
 git push origin --tags
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Step.3 发布到npm&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm publish
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;发布到npm
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm publish
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;还可以为npm包做travis-CI来保持可靠性&lt;/p&gt;
-
-&lt;p&gt;Step.1 在github上fork&lt;a href=&quot;https://github.com/plaindocs/travis-broken-example&quot;&gt;【travis-broken-example】&lt;/a&gt;这个库&lt;/p&gt;
-
-&lt;p&gt;Step.2 用github关联登录&lt;a href=&quot;https://travis-ci.org/auth&quot;&gt;travis CI&lt;/a&gt;，允许授权&lt;/p&gt;
-
-&lt;p&gt;Step.3 在arios文件目录下新建.travis.yml文件，&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;language: node_js
+&lt;p&gt;&lt;strong&gt;还可以为npm包做travis-CI来保持可靠性&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;在github上fork&lt;a href=&quot;https://github.com/plaindocs/travis-broken-example&quot;&gt;【travis-broken-example】&lt;/a&gt;这个库&lt;/li&gt;
+  &lt;li&gt;用github关联登录&lt;a href=&quot;https://travis-ci.org/auth&quot;&gt;travis CI&lt;/a&gt;，允许授权&lt;/li&gt;
+  &lt;li&gt;在arios文件目录下新建.travis.yml文件，
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;language: node_js
 
 node_js:
   - &quot;4&quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;上述文件表示使用node环境，用4.x版本进行build&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt;上述文件表示使用node环境，用4.x版本进行build&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;在&lt;a href=&quot;https://travis-ci.org/&quot;&gt;travis-ci&lt;/a&gt;官网上管理要build的仓库，在左边的My Repositories中进行管理。比如本例中将arios仓库的开关打开。&lt;/li&gt;
+  &lt;li&gt;在arios项目的package.json中，修改script中test命令，本例中直接删除&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp; exit 1&lt;/code&gt;，并push到github中&lt;/li&gt;
+  &lt;li&gt;travis重新build，成功，点击build passing图标，会出现一个弹窗，复制最下面的链接&lt;code class=&quot;highlighter-rouge&quot;&gt;https://travis-ci.org/Pickcle/arios.svg&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;在readme中添加&lt;code class=&quot;highlighter-rouge&quot;&gt;[![build status](https://travis-ci.org/Pickcle/arios.svg)](https://travis-ci.org/Pickcle/arios)&lt;/code&gt;，push到github，现在再看readme，就能看到build passing的图标了&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Step.4 在&lt;a href=&quot;https://travis-ci.org/&quot;&gt;travis-ci&lt;/a&gt;官网上管理要build的仓库，在左边的My Repositories中进行管理。比如本例中将arios仓库的开关打开。&lt;/p&gt;
-
-&lt;p&gt;Step.5 在arios项目的package.json中，修改script中test命令，本例中直接删除&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&amp;amp; exit 1&lt;/code&gt;，并push到github中&lt;/p&gt;
-
-&lt;p&gt;Step.6 travis重新build，成功，点击build passing图标，会出现一个弹窗，复制最下面的链接&lt;code class=&quot;highlighter-rouge&quot;&gt;https://travis-ci.org/Pickcle/arios.svg&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Step.7 在readme中添加&lt;code class=&quot;highlighter-rouge&quot;&gt;[![build status](https://travis-ci.org/Pickcle/arios.svg)](https://travis-ci.org/Pickcle/arios)&lt;/code&gt;，push到github，现在再看readme，就能看到build passing的图标了&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;过程中遇到的问题：&lt;/p&gt;
-
-&lt;p&gt;npm publish –tag v1.0.0 时报错：Tag name must not be a valid SemVer range: 1.0.0&lt;/p&gt;
-
-&lt;p&gt;这个报错是因为publish会自动将github仓库中的tag作为version，如果tag也使用v1.0.0，会导致冲突&lt;/p&gt;
-
-&lt;p&gt;npm publish时报错you do not have permission to publish “arios”. Are you logged in as the correct user?&lt;/p&gt;
-
-&lt;p&gt;这个报错很可能是因为arios这个包已经存在了，所以得换一个包名字再npm publish&lt;/p&gt;</content><author><name></name></author><summary type="html">最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下</summary></entry><entry><title type="html">尤雨溪知乎live摘要</title><link href="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html" rel="alternate" type="text/html" title="尤雨溪知乎live摘要" /><published>2017-06-15T12:00:00+08:00</published><updated>2017-06-15T12:00:00+08:00</updated><id>/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81</id><content type="html" xml:base="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html">&lt;p&gt;尤雨溪live&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;过程中遇到的问题：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;npm publish –tag v1.0.0 时报错：Tag name must not be a valid SemVer range: 1.0.0&lt;br /&gt;
+这个报错是因为publish会自动将github仓库中的tag作为version，如果tag也使用v1.0.0，会导致冲突&lt;/li&gt;
+  &lt;li&gt;npm publish时报错you do not have permission to publish “arios”. Are you logged in as the correct user?&lt;br /&gt;
+这个报错很可能是因为arios这个包已经存在了，所以得换一个包名字再npm publish&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下 既然要在npm上发布，首先当然需要一个npm账号。【npm】 在自己的github上新建个仓库，本例中仓库名是arios，如果没有github账号，先注册一个。【github】 将Step2中新建的仓库clone到本地。 在项目目录下npm init，自己填入信息生成package.json文件。 根据package.json中main对应的文件名，新建相应文件。比如main是index.js，则新建index.js，内容先随便写写 module.exports = exports = { name: 'arios' } 准备提交代码到github，并打上tag，tag的版本号需要跟package.json中的version保持一致 git add . git commit -m 'first commit' git tag v1.0.0 git push git push origin --tags 将仓库发布到npm，只需要一个简单的命令就行了 npm publish 如果是第一次publish，需要输入npm账号密码邮箱，以后就不需要了。 发布完成后，npm会以刚才tag的版本作为最新版本。 这样一个发布过程就完成了，要使用的时候，使用npm install arios，就会安装最新版本的包。</summary></entry><entry><title type="html">尤雨溪知乎live摘要</title><link href="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html" rel="alternate" type="text/html" title="尤雨溪知乎live摘要" /><published>2017-06-15T12:00:00+08:00</published><updated>2017-06-15T12:00:00+08:00</updated><id>/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81</id><content type="html" xml:base="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html">&lt;p&gt;尤雨溪live&lt;/p&gt;
 
 &lt;p&gt;组件：基本抽象单元，页面-&amp;gt;组件树，react揭示了组件可以是函数，&lt;/p&gt;
 
@@ -420,101 +438,84 @@ CSS&lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;
 跨平台渲染&lt;/p&gt;
 
-&lt;p&gt;将细粒度的变化转为相应平台的API&lt;/p&gt;</content><author><name></name></author><summary type="html">尤雨溪live</summary></entry><entry><title type="html">Vue从零开始记录</title><link href="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html" rel="alternate" type="text/html" title="Vue从零开始记录" /><published>2017-05-28T12:00:00+08:00</published><updated>2017-05-28T12:00:00+08:00</updated><id>/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="/vue/2017/05/28/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">&lt;p&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/p&gt;
+&lt;p&gt;将细粒度的变化转为相应平台的API&lt;/p&gt;</content><author><name></name></author><summary type="html">尤雨溪live</summary></entry><entry><title type="html">Vue从零开始记录</title><link href="/vue/2017/06/01/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html" rel="alternate" type="text/html" title="Vue从零开始记录" /><published>2017-06-01T12:00:00+08:00</published><updated>2017-06-01T12:00:00+08:00</updated><id>/vue/2017/06/01/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="/vue/2017/06/01/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">&lt;p&gt;&lt;strong&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;解决方案：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-Vue warn: Error compiling template:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vue warn: Error compiling template:Templates should only be responsible for mapping the state to the UI. Avoid placing tags with side-effects in your templates, such as &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;script&amp;gt;&lt;/code&gt;, as they will not be parsed.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Templates should only be responsible for mapping the state to the UI. Avoid placing tags with side-effects in your templates, such as *&lt;script&gt;*, as they will not be parsed.&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;使用html-webpack-plugin时，指定template对应的模板html中，不能有&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div /&amp;gt;&lt;/code&gt;这样的写法，必须是&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;这样的标准写法，否则会报错&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;解决方案：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;使用html-webpack-plugin时，指定template对应的模板html中，不能有&amp;lt;div /&amp;gt;这样的写法，必须是&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;这样的标准写法，否则会报错
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;server文件中添加&lt;/p&gt;
 
-&lt;p&gt;解决方案：&lt;/p&gt;
+    &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;compiler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wepback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;wepbackConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;webpackHotMiddleware&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'webpack-hot-middleware'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;p&gt;step.1&lt;/p&gt;
-
-&lt;p&gt;server文件中添加&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compiler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wepback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wepbackConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webpackHotMiddleware&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'webpack-hot-middleware'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hotMiddleware&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webpackHotMiddleware&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compiler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;ss&quot;&gt;log: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hotMiddleware&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;webpackHotMiddleware&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;compiler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;compiler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'compilation'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compilation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;compilation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'html-webpack-plugin-after-emit'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;hotMiddleware&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;publish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;action: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'reload'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;compiler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'compilation'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;compilation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;compilation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'html-webpack-plugin-after-emit'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;hotMiddleware&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;publish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'reload'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;当webpack重新打包html时，会派送个自定义的reload事件&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;新建文件hotMiddlewareClient.js&lt;/p&gt;
 
-&lt;p&gt;当webpack重新打包html时，会派送个自定义的reload事件&lt;/p&gt;
+    &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hotMiddlewareClient&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'webpack-hot-middleware/client?noInfo=true&amp;amp;reload=true'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;p&gt;step.2&lt;/p&gt;
-
-&lt;p&gt;新建文件hotMiddlewareClient.js&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hotMiddlewareClient&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'webpack-hot-middleware/client?noInfo=true&amp;amp;reload=true'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;hotMiddlewareClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;action&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'reload'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;hotMiddlewareClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;action&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'reload'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;接收reload事件，强制浏览器reload&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在webpack.config.js中配置&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;entry: {
+  app: [
+    './hotMiddlewareClient',
+    path.join(SRC_PATH, 'index.js')
+  ]
+},
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry><entry><title type="html">Vue warn: You are using the runtime-only build of Vue</title><link href="/vue/2017/05/28/Vue-runtime-only-build.html" rel="alternate" type="text/html" title="Vue warn: You are using the runtime-only build of Vue" /><published>2017-05-28T12:00:00+08:00</published><updated>2017-05-28T12:00:00+08:00</updated><id>/vue/2017/05/28/Vue-runtime-only-build</id><content type="html" xml:base="/vue/2017/05/28/Vue-runtime-only-build.html">&lt;p&gt;&lt;strong&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;接收reload事件，强制浏览器reload&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry><entry><title type="html">webpack打包报错TypeError: $export is not a function</title><link href="/webpack/babel/2017/05/27/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html" rel="alternate" type="text/html" title="webpack打包报错TypeError: $export is not a function" /><published>2017-05-27T12:00:00+08:00</published><updated>2017-05-27T12:00:00+08:00</updated><id>/webpack/babel/2017/05/27/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError:%20$export-is-not-a-function</id><content type="html" xml:base="/webpack/babel/2017/05/27/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html">&lt;p&gt;&lt;strong&gt;webpack打包时报错TypeError: $export is not a function&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;step.3&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;webpack.config.js中,loaders中的babel-loader需要加一行exclude: /node_modules/&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">webpack打包时报错TypeError: $export is not a function</summary></entry><entry><title type="html">atom安装插件失败解决方案</title><link href="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html" rel="alternate" type="text/html" title="atom安装插件失败解决方案" /><published>2017-05-12T12:00:00+08:00</published><updated>2017-05-12T12:00:00+08:00</updated><id>/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</id><content type="html" xml:base="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">&lt;p&gt;&lt;strong&gt;在windows系统中打开atom，安装package失败，错误码404&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;在webpack.config.js中配置&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;ss&quot;&gt;entry: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;ss&quot;&gt;app: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;'./hotMiddlewareClient'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SRC_PATH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'index.js'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry><entry><title type="html">Vue warn: You are using the runtime-only build of Vue</title><link href="/vue/2017/05/28/Vue-runtime-only-build.html" rel="alternate" type="text/html" title="Vue warn: You are using the runtime-only build of Vue" /><published>2017-05-28T12:00:00+08:00</published><updated>2017-05-28T12:00:00+08:00</updated><id>/vue/2017/05/28/Vue-runtime-only-build</id><content type="html" xml:base="/vue/2017/05/28/Vue-runtime-only-build.html">&lt;p&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/p&gt;
-
-&lt;p&gt;解决方案：&lt;/p&gt;
-
-&lt;p&gt;node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了&lt;/p&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry><entry><title type="html">webpack打包报错TypeError: $export is not a function</title><link href="/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html" rel="alternate" type="text/html" title="webpack打包报错TypeError: $export is not a function" /><published>2017-05-28T12:00:00+08:00</published><updated>2017-05-28T12:00:00+08:00</updated><id>/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError:%20$export-is-not-a-function</id><content type="html" xml:base="/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html">&lt;p&gt;webpack打包时报错TypeError: $export is not a function&lt;/p&gt;
-
-&lt;p&gt;解决方案：&lt;/p&gt;
-
-&lt;p&gt;webpack.config.js中,loaders中的babel-loader需要加一行exclude: /node_modules/&lt;/p&gt;</content><author><name></name></author><summary type="html">webpack打包时报错TypeError: $export is not a function</summary></entry><entry><title type="html">atom安装插件失败解决方案</title><link href="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html" rel="alternate" type="text/html" title="atom安装插件失败解决方案" /><published>2017-05-12T12:00:00+08:00</published><updated>2017-05-12T12:00:00+08:00</updated><id>/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</id><content type="html" xml:base="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">&lt;p&gt;在windows系统中打开atom，安装package失败，错误码404&lt;/p&gt;
-
-&lt;p&gt;解决方案：&lt;/p&gt;
-
-&lt;p&gt;1.&lt;a href=&quot;https://atom.io/packages&quot;&gt;https://atom.io/packages&lt;/a&gt;，找到插件的github地址&lt;/p&gt;
-
-&lt;p&gt;2.进入atom的包管理目录，~/.atom/packages，git clone插件&lt;/p&gt;
-
-&lt;p&gt;3.进入插件目录，npm install&lt;/p&gt;</content><author><name></name></author><summary type="html">在windows系统中打开atom，安装package失败，错误码404</summary></entry><entry><title type="html">Operation not permitted解决方法</title><link href="/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html" rel="alternate" type="text/html" title="Operation not permitted解决方法" /><published>2017-04-13T15:20:24+08:00</published><updated>2017-04-13T15:20:24+08:00</updated><id>/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95</id><content type="html" xml:base="/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html">&lt;p&gt;使用sudo gem install jekyll bundler安装jekyll时发生错误:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;ERROR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;While&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;executing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Errno&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EPERM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Operation&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;permitted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/usr/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;解决方法:&lt;/p&gt;
-
-&lt;p&gt;sudo gem install -n /usr/local/bin/ jekyll&lt;/p&gt;
-
-&lt;p&gt;默认安装目录是/usr/bin，将安装目录改成/usr/local/bin，可以绕过SIP检测&lt;/p&gt;
-
-&lt;p&gt;参考链接： &lt;a href=&quot;http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11&quot;&gt;http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">使用sudo gem install jekyll bundler安装jekyll时发生错误:</summary></entry></feed>
+&lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://atom.io/packages&quot;&gt;https://atom.io/packages&lt;/a&gt;，找到插件的github地址&lt;/li&gt;
+  &lt;li&gt;进入atom的包管理目录，~/.atom/packages，git clone插件&lt;/li&gt;
+  &lt;li&gt;进入插件目录，npm install&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">在windows系统中打开atom，安装package失败，错误码404</summary></entry></feed>

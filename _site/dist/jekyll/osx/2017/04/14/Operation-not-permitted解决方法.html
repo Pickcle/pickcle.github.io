@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>jekyll安装过程</title>
-  <meta name="description" content="Mac OS X El Capitan系统下安装jekyll：">
+  <title>Operation not permitted解决方法</title>
+  <meta name="description" content="使用sudo gem install jekyll bundler安装jekyll时发生错误: ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/jekyll 解决方法: sudo gem instal...">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="/jekyll/install/2017/04/13/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html">
+  <link rel="canonical" href="/jekyll/osx/2017/04/14/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -67,45 +67,28 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">jekyll安装过程</h1>
+    <h1 class="post-title" itemprop="name headline">Operation not permitted解决方法</h1>
     <p class="post-meta">
-      <time datetime="2017-04-13T12:00:00+08:00" itemprop="datePublished">
+      <time datetime="2017-04-14T12:00:00+08:00" itemprop="datePublished">
         
-        Apr 13, 2017
+        Apr 14, 2017
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Mac OS X El Capitan系统下安装jekyll：</p>
+    <p><strong>使用sudo gem install jekyll bundler安装jekyll时发生错误:</strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>ERROR: While executing gem ... (Errno::EPERM)
+Operation not permitted - /usr/bin/jekyll
+</code></pre>
+</div>
+<p><strong>解决方法:</strong></p>
+<ul>
+  <li>sudo gem install -n /usr/local/bin/ jekyll<br />
+默认安装目录是/usr/bin，将安装目录改成/usr/local/bin，可以绕过SIP检测</li>
+</ul>
 
-<p>1.sudo gem update –system(需要翻墙)</p>
-
-<p>更新gem</p>
-
-<p>oh my zsh翻墙：<a href="https://pickcle.github.io/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html">Oh My Zsh翻墙方法</a></p>
-
-<p>2.sudo gem install jekyll bundler</p>
-
-<p>安装jekyll bundler</p>
-
-<p><a href="https://pickcle.github.io/jekyll/osx/2017/04/13/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html">Operation not permitted解决方法</a></p>
-
-<p>3.jekyll new blog</p>
-
-<p>在blog文件夹下创建一个新的jekyll项目</p>
-
-<p>如果是导入了就项目，也必须走一遍这个过程，因为在新建项目时，会安装一堆gem库，如果不走这步，会有各种cannot find sass之类的报错</p>
-
-<p>4.cd blog</p>
-
-<p>5.bundle exec jekyll serve</p>
-
-<p>启动jekyll服务</p>
-
-<p>6.在浏览器打开http://localhost:4000</p>
-
-<p>参考链接： <a href="https://jekyllrb.com/docs/quickstart/">https://jekyllrb.com/docs/quickstart/</a></p>
+<p><strong>参考链接：</strong> <a href="http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11">http://stackoverflow.com/questions/31567029/how-can-i-install-jekyll-on-osx-10-11</a></p>
 
   </div>
 

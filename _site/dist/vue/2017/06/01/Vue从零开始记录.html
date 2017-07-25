@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Vue warn: You are using the runtime-only build of Vue</title>
+  <title>Vue从零开始记录</title>
   <meta name="description" content="Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, o...">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="/vue/2017/05/28/Vue-runtime-only-build.html">
+  <link rel="canonical" href="/vue/2017/06/01/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -67,11 +67,11 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Vue warn: You are using the runtime-only build of Vue</h1>
+    <h1 class="post-title" itemprop="name headline">Vue从零开始记录</h1>
     <p class="post-meta">
-      <time datetime="2017-05-28T12:00:00+08:00" itemprop="datePublished">
+      <time datetime="2017-06-01T12:00:00+08:00" itemprop="datePublished">
         
-        May 28, 2017
+        Jun 1, 2017
       </time>
       </p>
   </header>
@@ -82,6 +82,64 @@
 <p><strong>解决方案：</strong></p>
 <ul>
   <li>node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了</li>
+</ul>
+
+<p><strong>Vue warn: Error compiling template:Templates should only be responsible for mapping the state to the UI. Avoid placing tags with side-effects in your templates, such as <code class="highlighter-rouge">&lt;script&gt;</code>, as they will not be parsed.</strong></p>
+
+<p><strong>解决方案：</strong></p>
+<ul>
+  <li>使用html-webpack-plugin时，指定template对应的模板html中，不能有<code class="highlighter-rouge">&lt;div /&gt;</code>这样的写法，必须是<code class="highlighter-rouge">&lt;div&gt;&lt;/div&gt;</code>这样的标准写法，否则会报错</li>
+</ul>
+
+<p><strong>webpack HMR(hot module replacement) 如何对html-webpack-plugin生效？</strong></p>
+
+<p><strong>解决方案：</strong></p>
+<ul>
+  <li>
+    <p>server文件中添加</p>
+
+    <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">compiler</span> <span class="o">=</span> <span class="nx">wepback</span><span class="p">(</span><span class="nx">wepbackConfig</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">webpackHotMiddleware</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'webpack-hot-middleware'</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">hotMiddleware</span> <span class="o">=</span> <span class="nx">webpackHotMiddleware</span><span class="p">(</span><span class="nx">compiler</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">log</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
+<span class="p">})</span>
+
+<span class="nx">compiler</span><span class="p">.</span><span class="nx">plugin</span><span class="p">(</span><span class="s1">'compilation'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">compilation</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">compilation</span><span class="p">.</span><span class="nx">plugin</span><span class="p">(</span><span class="s1">'html-webpack-plugin-after-emit'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">hotMiddleware</span><span class="p">.</span><span class="nx">publish</span><span class="p">({</span> <span class="na">action</span><span class="p">:</span> <span class="s1">'reload'</span> <span class="p">})</span>
+    <span class="nx">cb</span><span class="p">()</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre>
+    </div>
+    <p>当webpack重新打包html时，会派送个自定义的reload事件</p>
+  </li>
+  <li>
+    <p>新建文件hotMiddlewareClient.js</p>
+
+    <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">hotMiddlewareClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'webpack-hot-middleware/client?noInfo=true&amp;reload=true'</span><span class="p">)</span>
+
+<span class="nx">hotMiddlewareClient</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">action</span> <span class="o">===</span> <span class="s1">'reload'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre>
+    </div>
+    <p>接收reload事件，强制浏览器reload</p>
+  </li>
+  <li>
+    <p>在webpack.config.js中配置</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>entry: {
+  app: [
+    './hotMiddlewareClient',
+    path.join(SRC_PATH, 'index.js')
+  ]
+},
+</code></pre>
+    </div>
+  </li>
 </ul>
 
   </div>

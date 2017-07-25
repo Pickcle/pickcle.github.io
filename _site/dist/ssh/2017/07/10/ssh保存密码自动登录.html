@@ -77,89 +77,74 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤</p>
+    <p><strong>使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤</strong></p>
 
-<p>本机系统： OS X</p>
+<p><strong>本机系统： OS X</strong></p>
 
-<p>远程机系统： centos 6
-<br />
-<br /></p>
+<p><strong>远程机系统： centos 6</strong></p>
+
 <ul>
   <li>本机生成RSA公私密钥对
     <div class="highlighter-rouge"><pre class="highlight"><code>ssh-keygen
 </code></pre>
     </div>
-    <p>选项全部默认为是，最后会在~/.ssh文件夹生成id_rsa和id_rsa.pub两个文件
-<br />
-<br /></p>
+    <p>选项全部默认为是，最后会在~/.ssh文件夹生成id_rsa和id_rsa.pub两个文件</p>
   </li>
   <li>改变.ssh目录权限
     <div class="highlighter-rouge"><pre class="highlight"><code>chmod 755 ~/.ssh
 </code></pre>
     </div>
-    <p><br />
-<br /></p>
   </li>
-  <li>
-    <p>在~/.ssh文件夹下创建config文件</p>
-
-    <p>内容如下：</p>
+  <li>在~/.ssh文件夹下创建config文件
+内容如下：
     <div class="highlighter-rouge"><pre class="highlight"><code>Host [自定义别名]
 HostName [服务器ip地址]
 User [用户名]
 Port [服务器端口]
 </code></pre>
     </div>
-    <p><br />
-<br /></p>
-  </li>
-  <li>将公钥复制到远程机上
-    <div class="highlighter-rouge"><pre class="highlight"><code>ssh-copy-id -i -p [端口] ~/.ssh/id_rsa/pub [用户名]@[ip地址]
+    <p>如果想要ssh保持长连接，在config后面添加</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>ServerAliveInterval 60
 </code></pre>
     </div>
-    <p>这次还是需要输入密码的
-<br />
-<br /></p>
+  </li>
+  <li>将公钥复制到远程机上
+    <div class="highlighter-rouge"><pre class="highlight"><code>ssh-copy-id -i ~/.ssh/id_rsa.pub -p [端口] [用户名]@[ip地址]
+</code></pre>
+    </div>
+    <p>这次还是需要输入密码的</p>
   </li>
   <li>连接上远程机
     <div class="highlighter-rouge"><pre class="highlight"><code>ssh -p [端口] [用户名]@[ip地址]
 </code></pre>
     </div>
-    <p>输入密码
-<br />
-<br /></p>
+    <p>输入密码</p>
   </li>
   <li>打开sshd_config
     <div class="highlighter-rouge"><pre class="highlight"><code>vi /etc/ssh/sshd_config
 </code></pre>
     </div>
     <p>将以下几行前面的’#’去掉</p>
-
-    <p>RSAAuthentication yes</p>
-
-    <p>PubkeyAuthentication yes</p>
-
-    <p>AuthorizedKeysFile .ssh/authorized_keys
-<br />
-<br /></p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+</code></pre>
+    </div>
   </li>
   <li>更改~/.ssh权限
     <div class="highlighter-rouge"><pre class="highlight"><code>cd ~/.ssh
 chmod 600 authorized_keys
 </code></pre>
     </div>
-    <p><br />
-<br /></p>
   </li>
   <li>重启ssh
     <div class="highlighter-rouge"><pre class="highlight"><code>service sshd restart
 </code></pre>
     </div>
-    <p><br />
-<br />
-回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了</p>
   </li>
 </ul>
+
+<p><strong>回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了</strong></p>
 
   </div>
 

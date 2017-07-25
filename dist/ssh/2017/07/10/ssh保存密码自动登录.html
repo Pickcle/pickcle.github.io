@@ -103,6 +103,10 @@ User [用户名]
 Port [服务器端口]
 </code></pre>
     </div>
+    <p>如果想要ssh保持长连接，在config后面添加</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>ServerAliveInterval 60
+</code></pre>
+    </div>
   </li>
   <li>将公钥复制到远程机上
     <div class="highlighter-rouge"><pre class="highlight"><code>ssh-copy-id -i ~/.ssh/id_rsa.pub -p [端口] [用户名]@[ip地址]

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Oh My Zsh翻墙方案</title>
-  <meta name="description" content="1.终端输入vim ~/.zshrc，查看Oh My Zsh的配置文件">
+  <meta name="description" content="Oh My Zsh翻墙步骤： 终端输入vim ~/.zshrc，查看Oh My Zsh的配置文件 添加以下内容: # socks5代理 alias setproxy=&quot;export all_proxy=socks5://127.0.0.1:1080&quot; alias unsetproxy=&quot;unset all_pro...">
 
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="canonical" href="/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html">
@@ -69,7 +69,7 @@
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">Oh My Zsh翻墙方案</h1>
     <p class="post-meta">
-      <time datetime="2017-04-13T15:10:24+08:00" itemprop="datePublished">
+      <time datetime="2017-04-13T12:00:00+08:00" itemprop="datePublished">
         
         Apr 13, 2017
       </time>
@@ -77,17 +77,19 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>1.终端输入vim ~/.zshrc，查看Oh My Zsh的配置文件</p>
-
-<p>2.添加以下内容:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># socks5代理</span>
-<span class="k">alias</span> <span class="n">setproxy</span><span class="o">=</span><span class="s2">"export all_proxy=socks5://127.0.0.1:1080"</span>
-<span class="k">alias</span> <span class="n">unsetproxy</span><span class="o">=</span><span class="s2">"unset all_proxy"</span></code></pre></figure>
-
-<p>3.保存退出vim，重启终端</p>
-
-<p>4.输入setproxy命令，启用socks5代理进行翻墙</p>
+    <p><strong>Oh My Zsh翻墙步骤：</strong></p>
+<ul>
+  <li>终端输入vim ~/.zshrc，查看Oh My Zsh的配置文件</li>
+  <li>添加以下内容:
+    <div class="highlighter-rouge"><pre class="highlight"><code># socks5代理
+alias setproxy="export all_proxy=socks5://127.0.0.1:1080"
+alias unsetproxy="unset all_proxy"
+</code></pre>
+    </div>
+  </li>
+  <li>保存退出vim，重启终端</li>
+  <li>输入setproxy命令，启用socks5代理进行翻墙</li>
+</ul>
 
   </div>
 

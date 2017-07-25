@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>webpack打包报错TypeError: $export is not a function</title>
-  <meta name="description" content="webpack打包时报错TypeError: $export is not a function">
+  <title>jekyll安装过程</title>
+  <meta name="description" content="Mac OS X El Capitan系统下安装jekyll： sudo gem update –system(需要翻墙) 更新gem oh my zsh翻墙：Oh My Zsh翻墙方法 sudo gem install jekyll bundler 安装jekyll bundler Operation not ...">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="/webpack/babel/2017/05/28/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html">
+  <link rel="canonical" href="/jekyll/install/2017/04/15/jekyll%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -67,21 +67,34 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">webpack打包报错TypeError: $export is not a function</h1>
+    <h1 class="post-title" itemprop="name headline">jekyll安装过程</h1>
     <p class="post-meta">
-      <time datetime="2017-05-28T12:00:00+08:00" itemprop="datePublished">
+      <time datetime="2017-04-15T12:00:00+08:00" itemprop="datePublished">
         
-        May 28, 2017
+        Apr 15, 2017
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>webpack打包时报错TypeError: $export is not a function</p>
+    <p><strong>Mac OS X El Capitan系统下安装jekyll：</strong></p>
+<ul>
+  <li>sudo gem update –system(需要翻墙)<br />
+更新gem<br />
+oh my zsh翻墙：<a href="https://pickcle.github.io/ohmyzsh/%E7%BF%BB%E5%A2%99/2017/04/13/Oh-My-Zsh%E7%BF%BB%E5%A2%99%E6%96%B9%E6%A1%88.html">Oh My Zsh翻墙方法</a></li>
+  <li>sudo gem install jekyll bundler<br />
+安装jekyll bundler<br />
+<a href="https://pickcle.github.io/jekyll/osx/2017/04/14/Operation-not-permitted%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html">Operation not permitted解决方法</a></li>
+  <li>jekyll new blog<br />
+在blog文件夹下创建一个新的jekyll项目<br />
+如果是导入了就项目，也必须走一遍这个过程，因为在新建项目时，会安装一堆gem库，如果不走这步，会有各种cannot find sass之类的报错</li>
+  <li>cd blog</li>
+  <li>bundle exec jekyll serve<br />
+启动jekyll服务</li>
+  <li>在浏览器打开http://localhost:4000</li>
+</ul>
 
-<p>解决方案：</p>
-
-<p>webpack.config.js中,loaders中的babel-loader需要加一行exclude: /node_modules/</p>
+<p><strong>参考链接：</strong><a href="https://jekyllrb.com/docs/quickstart/">https://jekyllrb.com/docs/quickstart/</a></p>
 
   </div>
 
