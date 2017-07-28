@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>使用vps+nodejs+nginx+mongodb搭建个人网站</title>
-  <meta name="description" content="之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。">
+  <title>vps+nodejs+nginx配置</title>
+  <meta name="description" content="记录在vps上如何配置nginx 安装nginx，直接yum安装即可 新建nginx配置文件 cd /etc/nginx/conf.d vi site.conf 输入配置信息 ``` server { listen 80; server_name www.myarki.com;">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="/vps/nodejs/nginx/mongodb/vue/bandwagon/blog/2017/07/17/%E4%BD%BF%E7%94%A8vps+nodejs+nginx+mongodb%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html">
+  <link rel="canonical" href="/centos6/2017/07/27/vps+node+nginx%E9%85%8D%E7%BD%AE.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -67,40 +67,56 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">使用vps+nodejs+nginx+mongodb搭建个人网站</h1>
+    <h1 class="post-title" itemprop="name headline">vps+nodejs+nginx配置</h1>
     <p class="post-meta">
-      <time datetime="2017-07-17T12:00:00+08:00" itemprop="datePublished">
+      <time datetime="2017-07-27T12:00:00+08:00" itemprop="datePublished">
         
-        Jul 17, 2017
+        Jul 27, 2017
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。</p>
-
-<p>这篇文章记录了从零开始搭建一个使用vps+nodejs+nginx的个人网站。</p>
-
-<hr />
-
-<p>准备工作：</p>
-
-<p><strong>遇到的问题</strong></p>
-
-<p><strong>mark一下</strong></p>
+    <p><strong>记录在vps上如何配置nginx</strong></p>
 <ul>
-  <li>osx查看端口情况
-    <div class="highlighter-rouge"><pre class="highlight"><code>lsof -i tcp
+  <li>安装nginx，直接yum安装即可</li>
+  <li>新建nginx配置文件
+    <div class="highlighter-rouge"><pre class="highlight"><code>  cd /etc/nginx/conf.d
+  vi site.conf
+</code></pre>
+    </div>
+    <p>输入配置信息</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  server {
+      listen 80;
+      server_name www.myarki.com;
+
+      location / {
+          proxy_pass: http://localhost:9090;
+      }
+  }
+</code></pre>
+    </div>
+    <p>保存退出</p>
+  </li>
+  <li>重启nginx
+    <div class="highlighter-rouge"><pre class="highlight"><code>  service nginx restart
 </code></pre>
     </div>
   </li>
-  <li>osx查看某个端口情况
-    <div class="highlighter-rouge"><pre class="highlight"><code>lsof -i:9090
+  <li>还可以将nginx服务设置为默认开启
+    <div class="highlighter-rouge"><pre class="highlight"><code>  chkconfig --level 2345 nginx on
 </code></pre>
     </div>
-  </li>
-  <li>关闭node进程，同时也关闭端口
-    <div class="highlighter-rouge"><pre class="highlight"><code>kill -2 [pid]
+    <p>执行以下命令查看：</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  chkconfig --list
+</code></pre>
+    </div>
+    <p>重启vps</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  reboot
+</code></pre>
+    </div>
+    <p>查看nginx服务是否开启</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  netstat --apn
 </code></pre>
     </div>
   </li>
