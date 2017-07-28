@@ -28,10 +28,6 @@ categories: ssh
   User [用户名]
   Port [服务器端口]
   ```
-  如果想要ssh保持长连接，在config后面添加
-  ```
-  ServerAliveInterval 60
-  ```
 * 将公钥复制到远程机上
   ```
   ssh-copy-id -i ~/.ssh/id_rsa.pub -p [端口] [用户名]@[ip地址]
@@ -52,6 +48,11 @@ categories: ssh
   PubkeyAuthentication yes
   AuthorizedKeysFile .ssh/authorized_keys
   ```
+  如果想要ssh保持长连接，添加
+  ```
+  TCPKeepAlive yes
+  ClientAliveInterval 120
+  ```
 * 更改~/.ssh权限
   ```
   cd ~/.ssh
@@ -62,4 +63,4 @@ categories: ssh
   service sshd restart
   ```
 
-**回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了**
+**回到本机，直接ssh -p [端口] [用户名]@[ip地址]或者ssh [自定义别名]，不用输入密码了，方便多了**
