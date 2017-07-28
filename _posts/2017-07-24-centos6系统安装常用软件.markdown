@@ -1,37 +1,53 @@
 ---
 layout: post
-title:  "centos6系统安装常用软件"
+title:  "centos6系统安装高版本nodejs"
 date:   2017-07-24 12:00:00 +0800
 categories: centos6
 ---
 
-**最近VPS重装系统了，记录一下需要用到的常用的软件**
-
-* 可以直接用yum安装的：
-	* git：
-		```
-		yum install git
-		```
+**最近VPS重装系统了，记录一下安装nodejs过程**
+* 更新yum
+	```
+	yum -y update
+	```
+* 直接使用yum安装的：
+	```
+	yum install -y git nginx
+	```
 * 需要下载源码安装的：
 	* gcc:
 		先安装依赖库
 		```
-		yum install zip unzip
+		yum install -y zip unzip
 		```
 		```
 		wget http://gcc.skazkaforyou.com/releases/gcc-4.8.2/gcc-4.8.2.tar.gz
 		tar -zxvf gcc-4.8.2.tar.gz
 		cd gcc-4.8.2
-		// 安装依赖库
 		./contrib/download_prerequisites
-		./configure
+		mkdir build
+		cd build
+		../configure --enable-checking=release --enable-languages=c,c++ --disable-multilib
 		make
-		make install
+		sudo make install
+		```
+		查看新安装好的gcc版本：i686-pc-linux-gnu-gcc-4.8.2
+		```
+		ls /usr/local/bin
+		```
+		然后将gcc链接改用新安装好的4.8.2版本
+		```
+		/usr/sbin/update-alternatives --install  /usr/bin/gcc gcc /usr/local/bin/i686-pc-linux-gnu-gcc-4.8.2 52
+		```
+		验证新版本
+		```
+		gcc -v
 		```
 	*	node/npm:  
+
 		先安装make等相应工具
 		```
-		yum install gcc make gcc-c++ openssl-devel wget
+		yum install -y gcc make gcc-c++ openssl-devel wget
 		```
 		```
 		yum -y install
@@ -44,3 +60,33 @@ categories: centos6
 		./configure
 		make && make install
 		```
+
+**过程中遇到的问题：**
+* node make时报错`GLIBCXX_3.4.18 not found`  
+	解决方法：将升级gcc后生成的动态库替换老版本动态库  
+	执行以下命令，查找最新动态库
+	```
+	find / -name "libstdc++.so*"
+	```
+	输出：
+	```
+	...
+	/usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so.6
+	/usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so.6.0.18
+	/usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so
+	...
+	```
+	将最新动态库复制到/usr/lib下
+	```
+	cp /usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so.6.0.18 /usr/lib
+	```
+	然后替换原软链接
+	```
+	cd /usr/lib
+	rm -rf libstdc++.so.6
+	ln -s libstdc++.so.6.0.18 libstdc++.so.6
+	```
+	验证是否成功：
+	```
+	strings /usr/lib/libstdc++.so.6 | grep GLIBC
+	```
