@@ -1,0 +1,39 @@
+---
+layout: post
+title:  "防止ssh超时自动断开"
+date:   2017-07-12 12:00:00 +0800
+categories: ssh
+---
+
+**使用ssh连接远程服务器时，当一段时间不操作后，会出现Broken pipe错误，表示ssh因为超时而自动断开。下面介绍下如何避免ssh超时自动断开**
+
+**本机系统： OS X**
+
+**远程机系统： centos 6**
+
+**以下两种方法各有优劣，请酌情选择使用**
+
+1. 修改本机ssh配置，对所有ssh都生效
+  ```
+  vi ~/.ssh/config
+  Host *
+  ServerAliveInterval 120
+  ServerAliveCountMax 720
+  ```
+  ServerAliveInterval参数表示每120秒会发送一个KeepAlive请求，防止自动断开  
+  然后修改文件权限
+  ```
+  chmod 600 ~/.ssh/config
+  ```
+2. 修改远程机ssh配置，对所有连接该远程机的ssh生效  
+  连接上远程机后，在远程机上修改：
+  ```
+  vi /etc/ssh/sshd_config
+  // 添加两行
+  ClientAliveInterval 120
+  ClientAliveCountMax 720
+  ```
+  修改完成后，重启ssh
+  ```
+  service sshd restart
+  ```
