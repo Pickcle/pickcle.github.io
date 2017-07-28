@@ -12,3 +12,19 @@ categories: vps nodejs nginx mongodb vue bandwagon blog
 ---
 
 准备工作：
+
+**遇到的问题**
+
+**mark一下**
+* osx查看端口情况
+  ```
+  lsof -i tcp
+  ```
+* osx查看某个端口情况
+  ```
+  lsof -i:9090
+  ```
+* 关闭node进程，同时也关闭端口
+  ```
+  kill -2 [pid]
+  ```
