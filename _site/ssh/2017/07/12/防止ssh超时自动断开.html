@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>尤雨溪知乎live摘要</title>
-  <meta name="description" content="尤雨溪live">
+  <title>防止ssh超时自动断开</title>
+  <meta name="description" content="使用ssh连接远程服务器时，当一段时间不操作后，会出现Broken pipe错误，表示ssh因为超时而自动断开。下面介绍下如何避免ssh超时自动断开">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html">
+  <link rel="canonical" href="http://localhost:4000/ssh/2017/07/12/%E9%98%B2%E6%AD%A2ssh%E8%B6%85%E6%97%B6%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -67,113 +67,52 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">尤雨溪知乎live摘要</h1>
+    <h1 class="post-title" itemprop="name headline">防止ssh超时自动断开</h1>
     <p class="post-meta">
-      <time datetime="2017-06-15T12:00:00+08:00" itemprop="datePublished">
+      <time datetime="2017-07-12T12:00:00+08:00" itemprop="datePublished">
         
-        Jun 15, 2017
+        Jul 12, 2017
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>尤雨溪live</p>
+    <p><strong>使用ssh连接远程服务器时，当一段时间不操作后，会出现Broken pipe错误，表示ssh因为超时而自动断开。下面介绍下如何避免ssh超时自动断开</strong></p>
 
-<p>组件：基本抽象单元，页面-&gt;组件树，react揭示了组件可以是函数，</p>
+<p><strong>本机系统： OS X</strong></p>
 
-<p>1.纯展示 component</p>
+<p><strong>远程机系统： centos 6</strong></p>
 
-<p>2.接入型 container</p>
+<p><strong>以下两种方法各有优劣，请酌情选择使用</strong></p>
 
-<p>3.交互型 交互性强，复用</p>
-
-<p>4.功能型 router-view transition</p>
-
-<p><br />
-模板 vs jsx</p>
-
-<p>jsx其实是js语法糖，获得了js的灵活性</p>
-
-<p>模板尽可能的少逻辑，更清晰地展示视图</p>
-
-<p><br />
-变化侦测&amp;渲染机制</p>
-
-<p>声明式 描述数据跟dom的关系 view = render(state)</p>
-
-<p>命令式 jquery 维护困难</p>
-
-<p>pull：粗粒度，react的setState，告诉系统去进行暴力检查</p>
-
-<p>push：</p>
-
-<p>observe：细粒度，watcher和observer会很多，内存开销</p>
-
-<p>shouldComponentUpdate，pureComponent是为了提高精度</p>
-
-<p>vue2中等粒度，组件级别是push</p>
-
-<p>侦测成本换自动优化</p>
-
-<p><br />
-状态管理：从源事件映射到状态改变</p>
-
-<p>redux： 数据不可变，immutable</p>
-
-<p>mobx&amp;vuex：数据可变，声明式，解决watch带来的副作用</p>
-
-<p>都没解决异步</p>
-
-<p>局部和全局状态无法区别</p>
-
-<p><br />
-路由</p>
-
-<p>component-is</p>
-
-<p>hash模式兼容history模式</p>
-
-<p>重定向</p>
-
-<p>别名</p>
-
-<p>懒加载</p>
-
-<p>跳转，钩子，异步操作，回退</p>
-
-<p><br />
-CSS</p>
-
-<p>scope，css module解决作用域问题</p>
-
-<p>atomic css 压缩css体积，尽量原子化，styletron</p>
-
-<p>weex 将css parse成js，实现跨平台</p>
-
-<p><br />
-构建工具</p>
-
-<p>任务自动化</p>
-
-<p>开发体验和效率hot reload</p>
-
-<p>部署相关的需求</p>
-
-<p>编译时优化</p>
-
-<p>rollup只适合打包纯js</p>
-
-<p><br />
-服务端数据通信</p>
-
-<p>RESTFUL API</p>
-
-<p>不适合 强关联性 实时通信</p>
-
-<p><br />
-跨平台渲染</p>
-
-<p>将细粒度的变化转为相应平台的API</p>
+<ol>
+  <li>修改本机ssh配置，对所有ssh都生效
+    <div class="highlighter-rouge"><pre class="highlight"><code>  vi ~/.ssh/config
+  Host *
+  ServerAliveInterval 120
+  ServerAliveCountMax 720
+</code></pre>
+    </div>
+    <p>ServerAliveInterval参数表示每120秒会发送一个KeepAlive请求，防止自动断开<br />
+  然后修改文件权限</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  chmod 600 ~/.ssh/config
+</code></pre>
+    </div>
+  </li>
+  <li>修改远程机ssh配置，对所有连接该远程机的ssh生效<br />
+  连接上远程机后，在远程机上修改：
+    <div class="highlighter-rouge"><pre class="highlight"><code>  vi /etc/ssh/sshd_config
+  // 添加两行
+  ClientAliveInterval 120
+  ClientAliveCountMax 720
+</code></pre>
+    </div>
+    <p>修改完成后，重启ssh</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  service sshd restart
+</code></pre>
+    </div>
+  </li>
+</ol>
 
   </div>
 

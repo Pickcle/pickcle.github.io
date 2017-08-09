@@ -1,37 +1,138 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-07-25T16:01:26+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
-</subtitle><entry><title type="html">centos6系统安装常用软件</title><link href="/centos6/2017/07/24/centos6%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6.html" rel="alternate" type="text/html" title="centos6系统安装常用软件" /><published>2017-07-24T12:00:00+08:00</published><updated>2017-07-24T12:00:00+08:00</updated><id>/centos6/2017/07/24/centos6%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6</id><content type="html" xml:base="/centos6/2017/07/24/centos6%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6.html">&lt;p&gt;&lt;strong&gt;最近VPS重装系统了，记录一下需要用到的常用的软件&lt;/strong&gt;&lt;/p&gt;
-
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-08-09T17:51:15+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
+</subtitle><entry><title type="html">vps+nodejs+nginx配置</title><link href="/centos6/2017/07/27/%E4%BD%BF%E7%94%A8box-shadow%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html" rel="alternate" type="text/html" title="vps+nodejs+nginx配置" /><published>2017-07-27T12:00:00+08:00</published><updated>2017-07-27T12:00:00+08:00</updated><id>/centos6/2017/07/27/%E4%BD%BF%E7%94%A8box-shadow%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1</id><content type="html" xml:base="/centos6/2017/07/27/%E4%BD%BF%E7%94%A8box-shadow%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html">&lt;p&gt;&lt;strong&gt;记录在vps上如何配置nginx&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;可以直接用yum安装的：
-    &lt;ul&gt;
-      &lt;li&gt;git：
-        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum install git
+  &lt;li&gt;安装nginx，直接yum安装即可&lt;/li&gt;
+  &lt;li&gt;新建nginx配置文件
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  cd /etc/nginx/conf.d
+  vi site.conf
 &lt;/code&gt;&lt;/pre&gt;
-        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;p&gt;输入配置信息&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  server {
+      listen 80;
+      server_name www.myarki.com;
+
+      location / {
+          proxy_pass: http://localhost:9090;
+      }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;保存退出&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;重启nginx
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  service nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;还可以将nginx服务设置为默认开启
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  chkconfig --level 2345 nginx on
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;执行以下命令查看：&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  chkconfig --list
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;重启vps&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  reboot
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;查看nginx服务是否开启&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  netstat --apn
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">记录在vps上如何配置nginx 安装nginx，直接yum安装即可 新建nginx配置文件 cd /etc/nginx/conf.d vi site.conf 输入配置信息 ``` server { listen 80; server_name www.myarki.com;</summary></entry><entry><title type="html">vps+nodejs+nginx配置</title><link href="/centos6/2017/07/27/vps+node+nginx%E9%85%8D%E7%BD%AE.html" rel="alternate" type="text/html" title="vps+nodejs+nginx配置" /><published>2017-07-27T12:00:00+08:00</published><updated>2017-07-27T12:00:00+08:00</updated><id>/centos6/2017/07/27/vps+node+nginx%E9%85%8D%E7%BD%AE</id><content type="html" xml:base="/centos6/2017/07/27/vps+node+nginx%E9%85%8D%E7%BD%AE.html">&lt;p&gt;&lt;strong&gt;记录在vps上如何配置nginx&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;安装nginx，直接yum安装即可&lt;/li&gt;
+  &lt;li&gt;新建nginx配置文件
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  cd /etc/nginx/conf.d
+  vi site.conf
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;输入配置信息&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  server {
+      listen 80;
+      server_name www.myarki.com;
+
+      location / {
+          proxy_pass: http://localhost:9090;
+      }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;保存退出&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;重启nginx
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  service nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;还可以将nginx服务设置为默认开启
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  chkconfig --level 2345 nginx on
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;执行以下命令查看：&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  chkconfig --list
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;重启vps&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  reboot
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;查看nginx服务是否开启&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  netstat --apn
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">记录在vps上如何配置nginx 安装nginx，直接yum安装即可 新建nginx配置文件 cd /etc/nginx/conf.d vi site.conf 输入配置信息 ``` server { listen 80; server_name www.myarki.com;</summary></entry><entry><title type="html">centos6系统安装高版本nodejs</title><link href="/centos6/2017/07/24/centos6%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6.html" rel="alternate" type="text/html" title="centos6系统安装高版本nodejs" /><published>2017-07-24T12:00:00+08:00</published><updated>2017-07-24T12:00:00+08:00</updated><id>/centos6/2017/07/24/centos6%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6</id><content type="html" xml:base="/centos6/2017/07/24/centos6%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6.html">&lt;p&gt;&lt;strong&gt;最近VPS重装系统了，记录一下安装nodejs过程&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;更新yum
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum -y update
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;直接使用yum安装的：
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum install -y git nginx
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;需要下载源码安装的：
     &lt;ul&gt;
       &lt;li&gt;gcc:
   先安装依赖库
-        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum install zip unzip
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum install -y zip unzip
 &lt;/code&gt;&lt;/pre&gt;
         &lt;/div&gt;
         &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  wget http://gcc.skazkaforyou.com/releases/gcc-4.8.2/gcc-4.8.2.tar.gz
   tar -zxvf gcc-4.8.2.tar.gz
   cd gcc-4.8.2
-  // 安装依赖库
   ./contrib/download_prerequisites
-  ./configure
+  mkdir build
+  cd build
+  ../configure --enable-checking=release --enable-languages=c,c++ --disable-multilib
   make
-  make install
+  sudo make install
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;p&gt;查看新安装好的gcc版本：i686-pc-linux-gnu-gcc-4.8.2&lt;/p&gt;
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ls /usr/local/bin
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;p&gt;然后将gcc链接改用新安装好的4.8.2版本&lt;/p&gt;
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  /usr/sbin/update-alternatives --install  /usr/bin/gcc gcc /usr/local/bin/i686-pc-linux-gnu-gcc-4.8.2 52
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+        &lt;p&gt;验证新版本&lt;/p&gt;
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  gcc -v
 &lt;/code&gt;&lt;/pre&gt;
         &lt;/div&gt;
       &lt;/li&gt;
-      &lt;li&gt;node/npm:&lt;br /&gt;
-  先安装make等相应工具
-        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum install gcc make gcc-c++ openssl-devel wget
+      &lt;li&gt;
+        &lt;p&gt;node/npm:&lt;/p&gt;
+
+        &lt;p&gt;先安装make等相应工具&lt;/p&gt;
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum install -y gcc make gcc-c++ openssl-devel wget
 &lt;/code&gt;&lt;/pre&gt;
         &lt;/div&gt;
         &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  yum -y install
@@ -48,7 +149,40 @@
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">最近VPS重装系统了，记录一下需要用到的常用的软件</summary></entry><entry><title type="html">markdown语法</title><link href="/markdown/2017/07/18/markdown%E8%AF%AD%E6%B3%95.html" rel="alternate" type="text/html" title="markdown语法" /><published>2017-07-18T12:00:00+08:00</published><updated>2017-07-18T12:00:00+08:00</updated><id>/markdown/2017/07/18/markdown%E8%AF%AD%E6%B3%95</id><content type="html" xml:base="/markdown/2017/07/18/markdown%E8%AF%AD%E6%B3%95.html">&lt;h1 id=&quot;如何转换markdown到htmldocpdfppt格式&quot;&gt;如何转换Markdown到html/doc/pdf/ppt格式&lt;/h1&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;过程中遇到的问题：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;node make时报错&lt;code class=&quot;highlighter-rouge&quot;&gt;GLIBCXX_3.4.18 not found&lt;/code&gt;&lt;br /&gt;
+  解决方法：将升级gcc后生成的动态库替换老版本动态库&lt;br /&gt;
+  执行以下命令，查找最新动态库
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  find / -name &quot;libstdc++.so*&quot;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;输出：&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ...
+  /usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so.6
+  /usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so.6.0.18
+  /usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so
+  ...
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;将最新动态库复制到/usr/lib下&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  cp /usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so.6.0.18 /usr/lib
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;然后替换原软链接&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  cd /usr/lib
+  rm -rf libstdc++.so.6
+  ln -s libstdc++.so.6.0.18 libstdc++.so.6
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;验证是否成功：&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  strings /usr/lib/libstdc++.so.6 | grep GLIBC
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">最近VPS重装系统了，记录一下安装nodejs过程 更新yum yum -y update 直接使用yum安装的： yum install -y git nginx 需要下载源码安装的： gcc: 先安装依赖库 yum install -y zip unzip wget http://gcc.skazkaforyou.com/releases/gcc-4.8.2/gcc-4.8.2.tar.gz tar -zxvf gcc-4.8.2.tar.gz cd gcc-4.8.2 ./contrib/download_prerequisites mkdir build cd build ../configure --enable-checking=release --enable-languages=c,c++ --disable-multilib make sudo make install 查看新安装好的gcc版本：i686-pc-linux-gnu-gcc-4.8.2 ls /usr/local/bin 然后将gcc链接改用新安装好的4.8.2版本 /usr/sbin/update-alternatives --install /usr/bin/gcc gcc /usr/local/bin/i686-pc-linux-gnu-gcc-4.8.2 52 验证新版本 gcc -v node/npm:</summary></entry><entry><title type="html">markdown语法</title><link href="/markdown/2017/07/18/markdown%E8%AF%AD%E6%B3%95.html" rel="alternate" type="text/html" title="markdown语法" /><published>2017-07-18T12:00:00+08:00</published><updated>2017-07-18T12:00:00+08:00</updated><id>/markdown/2017/07/18/markdown%E8%AF%AD%E6%B3%95</id><content type="html" xml:base="/markdown/2017/07/18/markdown%E8%AF%AD%E6%B3%95.html">&lt;h1 id=&quot;如何转换markdown到htmldocpdfppt格式&quot;&gt;如何转换Markdown到html/doc/pdf/ppt格式&lt;/h1&gt;
 
 &lt;h2 id=&quot;内容大纲&quot;&gt;内容大纲&lt;/h2&gt;
 &lt;ul&gt;
@@ -199,7 +333,63 @@ int main(void)
 
 &lt;hr /&gt;
 
-&lt;p&gt;准备工作：&lt;/p&gt;</content><author><name></name></author><summary type="html">之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。</summary></entry><entry><title type="html">ssh保存密码自动登录</title><link href="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html" rel="alternate" type="text/html" title="ssh保存密码自动登录" /><published>2017-07-10T12:00:00+08:00</published><updated>2017-07-10T12:00:00+08:00</updated><id>/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95</id><content type="html" xml:base="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html">&lt;p&gt;&lt;strong&gt;使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;准备工作：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;遇到的问题&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;mark一下&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;osx查看端口情况
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lsof -i tcp
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;osx查看某个端口情况
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lsof -i:9090
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;关闭node进程，同时也关闭端口
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kill -2 [pid]
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。</summary></entry><entry><title type="html">防止ssh超时自动断开</title><link href="/ssh/2017/07/12/%E9%98%B2%E6%AD%A2ssh%E8%B6%85%E6%97%B6%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80.html" rel="alternate" type="text/html" title="防止ssh超时自动断开" /><published>2017-07-12T12:00:00+08:00</published><updated>2017-07-12T12:00:00+08:00</updated><id>/ssh/2017/07/12/%E9%98%B2%E6%AD%A2ssh%E8%B6%85%E6%97%B6%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80</id><content type="html" xml:base="/ssh/2017/07/12/%E9%98%B2%E6%AD%A2ssh%E8%B6%85%E6%97%B6%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80.html">&lt;p&gt;&lt;strong&gt;使用ssh连接远程服务器时，当一段时间不操作后，会出现Broken pipe错误，表示ssh因为超时而自动断开。下面介绍下如何避免ssh超时自动断开&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;本机系统： OS X&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;远程机系统： centos 6&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;以下两种方法各有优劣，请酌情选择使用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;修改本机ssh配置，对所有ssh都生效
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  vi ~/.ssh/config
+  Host *
+  ServerAliveInterval 120
+  ServerAliveCountMax 720
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;ServerAliveInterval参数表示每120秒会发送一个KeepAlive请求，防止自动断开&lt;br /&gt;
+  然后修改文件权限&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  chmod 600 ~/.ssh/config
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;修改远程机ssh配置，对所有连接该远程机的ssh生效&lt;br /&gt;
+  连接上远程机后，在远程机上修改：
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  vi /etc/ssh/sshd_config
+  // 添加两行
+  ClientAliveInterval 120
+  ClientAliveCountMax 720
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;修改完成后，重启ssh&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  service sshd restart
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">使用ssh连接远程服务器时，当一段时间不操作后，会出现Broken pipe错误，表示ssh因为超时而自动断开。下面介绍下如何避免ssh超时自动断开</summary></entry><entry><title type="html">ssh保存密码自动登录</title><link href="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html" rel="alternate" type="text/html" title="ssh保存密码自动登录" /><published>2017-07-10T12:00:00+08:00</published><updated>2017-07-10T12:00:00+08:00</updated><id>/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95</id><content type="html" xml:base="/ssh/2017/07/10/ssh%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95.html">&lt;p&gt;&lt;strong&gt;使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;本机系统： OS X&lt;/strong&gt;&lt;/p&gt;
 
@@ -225,10 +415,6 @@ User [用户名]
 Port [服务器端口]
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
-    &lt;p&gt;如果想要ssh保持长连接，在config后面添加&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ServerAliveInterval 60
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;将公钥复制到远程机上
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-copy-id -i ~/.ssh/id_rsa.pub -p [端口] [用户名]@[ip地址]
@@ -252,6 +438,11 @@ PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
+    &lt;p&gt;如果想要ssh保持长连接，添加&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;TCPKeepAlive yes
+ClientAliveInterval 120
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;更改~/.ssh权限
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ~/.ssh
@@ -266,7 +457,7 @@ chmod 600 authorized_keys
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤</summary></entry><entry><title type="html">npm发布包步骤</title><link href="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4</id><content type="html" xml:base="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html">&lt;p&gt;&lt;strong&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;回到本机，直接ssh -p [端口] [用户名]@[ip地址]或者ssh [自定义别名]，不用输入密码了，方便多了&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">使用ssh连接远程服务器时，总是要输入密码，感觉很麻烦，往上搜到的文章，总是有点遗漏或者不清晰，于是写下这篇文章来记录一下步骤</summary></entry><entry><title type="html">npm发布包步骤</title><link href="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html" rel="alternate" type="text/html" title="npm发布包步骤" /><published>2017-06-28T12:00:00+08:00</published><updated>2017-06-28T12:00:00+08:00</updated><id>/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4</id><content type="html" xml:base="/npm/publish/github/2017/06/28/npm%E5%8F%91%E5%B8%83%E5%8C%85%E6%AD%A5%E9%AA%A4.html">&lt;p&gt;&lt;strong&gt;最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;既然要在npm上发布，首先当然需要一个npm账号。&lt;a href=&quot;https://www.npmjs.com/&quot;&gt;【npm】&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;在自己的github上新建个仓库，本例中仓库名是arios，如果没有github账号，先注册一个。&lt;a href=&quot;https://github.com/&quot;&gt;【github】&lt;/a&gt;&lt;/li&gt;
@@ -342,103 +533,7 @@ node_js:
 这个报错是因为publish会自动将github仓库中的tag作为version，如果tag也使用v1.0.0，会导致冲突&lt;/li&gt;
   &lt;li&gt;npm publish时报错you do not have permission to publish “arios”. Are you logged in as the correct user?&lt;br /&gt;
 这个报错很可能是因为arios这个包已经存在了，所以得换一个包名字再npm publish&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下 既然要在npm上发布，首先当然需要一个npm账号。【npm】 在自己的github上新建个仓库，本例中仓库名是arios，如果没有github账号，先注册一个。【github】 将Step2中新建的仓库clone到本地。 在项目目录下npm init，自己填入信息生成package.json文件。 根据package.json中main对应的文件名，新建相应文件。比如main是index.js，则新建index.js，内容先随便写写 module.exports = exports = { name: 'arios' } 准备提交代码到github，并打上tag，tag的版本号需要跟package.json中的version保持一致 git add . git commit -m 'first commit' git tag v1.0.0 git push git push origin --tags 将仓库发布到npm，只需要一个简单的命令就行了 npm publish 如果是第一次publish，需要输入npm账号密码邮箱，以后就不需要了。 发布完成后，npm会以刚才tag的版本作为最新版本。 这样一个发布过程就完成了，要使用的时候，使用npm install arios，就会安装最新版本的包。</summary></entry><entry><title type="html">尤雨溪知乎live摘要</title><link href="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html" rel="alternate" type="text/html" title="尤雨溪知乎live摘要" /><published>2017-06-15T12:00:00+08:00</published><updated>2017-06-15T12:00:00+08:00</updated><id>/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81</id><content type="html" xml:base="/live/2017/06/15/%E5%B0%A4%E9%9B%A8%E6%BA%AA%E7%9F%A5%E4%B9%8Elive%E6%91%98%E8%A6%81.html">&lt;p&gt;尤雨溪live&lt;/p&gt;
-
-&lt;p&gt;组件：基本抽象单元，页面-&amp;gt;组件树，react揭示了组件可以是函数，&lt;/p&gt;
-
-&lt;p&gt;1.纯展示 component&lt;/p&gt;
-
-&lt;p&gt;2.接入型 container&lt;/p&gt;
-
-&lt;p&gt;3.交互型 交互性强，复用&lt;/p&gt;
-
-&lt;p&gt;4.功能型 router-view transition&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-模板 vs jsx&lt;/p&gt;
-
-&lt;p&gt;jsx其实是js语法糖，获得了js的灵活性&lt;/p&gt;
-
-&lt;p&gt;模板尽可能的少逻辑，更清晰地展示视图&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-变化侦测&amp;amp;渲染机制&lt;/p&gt;
-
-&lt;p&gt;声明式 描述数据跟dom的关系 view = render(state)&lt;/p&gt;
-
-&lt;p&gt;命令式 jquery 维护困难&lt;/p&gt;
-
-&lt;p&gt;pull：粗粒度，react的setState，告诉系统去进行暴力检查&lt;/p&gt;
-
-&lt;p&gt;push：&lt;/p&gt;
-
-&lt;p&gt;observe：细粒度，watcher和observer会很多，内存开销&lt;/p&gt;
-
-&lt;p&gt;shouldComponentUpdate，pureComponent是为了提高精度&lt;/p&gt;
-
-&lt;p&gt;vue2中等粒度，组件级别是push&lt;/p&gt;
-
-&lt;p&gt;侦测成本换自动优化&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-状态管理：从源事件映射到状态改变&lt;/p&gt;
-
-&lt;p&gt;redux： 数据不可变，immutable&lt;/p&gt;
-
-&lt;p&gt;mobx&amp;amp;vuex：数据可变，声明式，解决watch带来的副作用&lt;/p&gt;
-
-&lt;p&gt;都没解决异步&lt;/p&gt;
-
-&lt;p&gt;局部和全局状态无法区别&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-路由&lt;/p&gt;
-
-&lt;p&gt;component-is&lt;/p&gt;
-
-&lt;p&gt;hash模式兼容history模式&lt;/p&gt;
-
-&lt;p&gt;重定向&lt;/p&gt;
-
-&lt;p&gt;别名&lt;/p&gt;
-
-&lt;p&gt;懒加载&lt;/p&gt;
-
-&lt;p&gt;跳转，钩子，异步操作，回退&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-CSS&lt;/p&gt;
-
-&lt;p&gt;scope，css module解决作用域问题&lt;/p&gt;
-
-&lt;p&gt;atomic css 压缩css体积，尽量原子化，styletron&lt;/p&gt;
-
-&lt;p&gt;weex 将css parse成js，实现跨平台&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-构建工具&lt;/p&gt;
-
-&lt;p&gt;任务自动化&lt;/p&gt;
-
-&lt;p&gt;开发体验和效率hot reload&lt;/p&gt;
-
-&lt;p&gt;部署相关的需求&lt;/p&gt;
-
-&lt;p&gt;编译时优化&lt;/p&gt;
-
-&lt;p&gt;rollup只适合打包纯js&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-服务端数据通信&lt;/p&gt;
-
-&lt;p&gt;RESTFUL API&lt;/p&gt;
-
-&lt;p&gt;不适合 强关联性 实时通信&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-跨平台渲染&lt;/p&gt;
-
-&lt;p&gt;将细粒度的变化转为相应平台的API&lt;/p&gt;</content><author><name></name></author><summary type="html">尤雨溪live</summary></entry><entry><title type="html">Vue从零开始记录</title><link href="/vue/2017/06/01/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html" rel="alternate" type="text/html" title="Vue从零开始记录" /><published>2017-06-01T12:00:00+08:00</published><updated>2017-06-01T12:00:00+08:00</updated><id>/vue/2017/06/01/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="/vue/2017/06/01/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">&lt;p&gt;&lt;strong&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/strong&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">最近在学习怎么在npm上发布包，过程也不算容易，因此写这篇文章分享一下 既然要在npm上发布，首先当然需要一个npm账号。【npm】 在自己的github上新建个仓库，本例中仓库名是arios，如果没有github账号，先注册一个。【github】 将Step2中新建的仓库clone到本地。 在项目目录下npm init，自己填入信息生成package.json文件。 根据package.json中main对应的文件名，新建相应文件。比如main是index.js，则新建index.js，内容先随便写写 module.exports = exports = { name: 'arios' } 准备提交代码到github，并打上tag，tag的版本号需要跟package.json中的version保持一致 git add . git commit -m 'first commit' git tag v1.0.0 git push git push origin --tags 将仓库发布到npm，只需要一个简单的命令就行了 npm publish 如果是第一次publish，需要输入npm账号密码邮箱，以后就不需要了。 发布完成后，npm会以刚才tag的版本作为最新版本。 这样一个发布过程就完成了，要使用的时候，使用npm install arios，就会安装最新版本的包。</summary></entry><entry><title type="html">Vue从零开始记录</title><link href="/vue/2017/06/01/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html" rel="alternate" type="text/html" title="Vue从零开始记录" /><published>2017-06-01T12:00:00+08:00</published><updated>2017-06-01T12:00:00+08:00</updated><id>/vue/2017/06/01/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95</id><content type="html" xml:base="/vue/2017/06/01/Vue%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95.html">&lt;p&gt;&lt;strong&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -506,16 +601,4 @@ CSS&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry><entry><title type="html">webpack打包报错TypeError: $export is not a function</title><link href="/webpack/babel/2017/05/27/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html" rel="alternate" type="text/html" title="webpack打包报错TypeError: $export is not a function" /><published>2017-05-27T12:00:00+08:00</published><updated>2017-05-27T12:00:00+08:00</updated><id>/webpack/babel/2017/05/27/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError:%20$export-is-not-a-function</id><content type="html" xml:base="/webpack/babel/2017/05/27/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99TypeError-$export-is-not-a-function.html">&lt;p&gt;&lt;strong&gt;webpack打包时报错TypeError: $export is not a function&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;webpack.config.js中,loaders中的babel-loader需要加一行exclude: /node_modules/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">webpack打包时报错TypeError: $export is not a function</summary></entry><entry><title type="html">atom安装插件失败解决方案</title><link href="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html" rel="alternate" type="text/html" title="atom安装插件失败解决方案" /><published>2017-05-12T12:00:00+08:00</published><updated>2017-05-12T12:00:00+08:00</updated><id>/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</id><content type="html" xml:base="/atom/packages/2017/05/12/atom%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html">&lt;p&gt;&lt;strong&gt;在windows系统中打开atom，安装package失败，错误码404&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://atom.io/packages&quot;&gt;https://atom.io/packages&lt;/a&gt;，找到插件的github地址&lt;/li&gt;
-  &lt;li&gt;进入atom的包管理目录，~/.atom/packages，git clone插件&lt;/li&gt;
-  &lt;li&gt;进入插件目录，npm install&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">在windows系统中打开atom，安装package失败，错误码404</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry></feed>

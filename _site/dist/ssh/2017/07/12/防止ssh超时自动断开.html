@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>使用vps+nodejs+nginx+mongodb搭建个人网站</title>
-  <meta name="description" content="之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。">
+  <title>防止ssh超时自动断开</title>
+  <meta name="description" content="使用ssh连接远程服务器时，当一段时间不操作后，会出现Broken pipe错误，表示ssh因为超时而自动断开。下面介绍下如何避免ssh超时自动断开">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/vps/nodejs/nginx/mongodb/vue/bandwagon/blog/2017/07/17/%E4%BD%BF%E7%94%A8vps+nodejs+nginx+mongodb%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99.html">
+  <link rel="canonical" href="/ssh/2017/07/12/%E9%98%B2%E6%AD%A2ssh%E8%B6%85%E6%97%B6%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -67,44 +67,52 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">使用vps+nodejs+nginx+mongodb搭建个人网站</h1>
+    <h1 class="post-title" itemprop="name headline">防止ssh超时自动断开</h1>
     <p class="post-meta">
-      <time datetime="2017-07-17T12:00:00+08:00" itemprop="datePublished">
+      <time datetime="2017-07-12T12:00:00+08:00" itemprop="datePublished">
         
-        Jul 17, 2017
+        Jul 12, 2017
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>之前使用LAMP(Linux+Apache+MySql+PHP)搭建了WordPress博客网站，但感觉框架太重，想改css只能用模板，想写博客只能用编辑器，想上传markdown都不允许，不够自由。</p>
+    <p><strong>使用ssh连接远程服务器时，当一段时间不操作后，会出现Broken pipe错误，表示ssh因为超时而自动断开。下面介绍下如何避免ssh超时自动断开</strong></p>
 
-<p>这篇文章记录了从零开始搭建一个使用vps+nodejs+nginx的个人网站。</p>
+<p><strong>本机系统： OS X</strong></p>
 
-<hr />
+<p><strong>远程机系统： centos 6</strong></p>
 
-<p>准备工作：</p>
+<p><strong>以下两种方法各有优劣，请酌情选择使用</strong></p>
 
-<p><strong>遇到的问题</strong></p>
-
-<p><strong>mark一下</strong></p>
-<ul>
-  <li>osx查看端口情况
-    <div class="highlighter-rouge"><pre class="highlight"><code>lsof -i tcp
+<ol>
+  <li>修改本机ssh配置，对所有ssh都生效
+    <div class="highlighter-rouge"><pre class="highlight"><code>  vi ~/.ssh/config
+  Host *
+  ServerAliveInterval 120
+  ServerAliveCountMax 720
+</code></pre>
+    </div>
+    <p>ServerAliveInterval参数表示每120秒会发送一个KeepAlive请求，防止自动断开<br />
+  然后修改文件权限</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  chmod 600 ~/.ssh/config
 </code></pre>
     </div>
   </li>
-  <li>osx查看某个端口情况
-    <div class="highlighter-rouge"><pre class="highlight"><code>lsof -i:9090
+  <li>修改远程机ssh配置，对所有连接该远程机的ssh生效<br />
+  连接上远程机后，在远程机上修改：
+    <div class="highlighter-rouge"><pre class="highlight"><code>  vi /etc/ssh/sshd_config
+  // 添加两行
+  ClientAliveInterval 120
+  ClientAliveCountMax 720
+</code></pre>
+    </div>
+    <p>修改完成后，重启ssh</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  service sshd restart
 </code></pre>
     </div>
   </li>
-  <li>关闭node进程，同时也关闭端口
-    <div class="highlighter-rouge"><pre class="highlight"><code>kill -2 [pid]
-</code></pre>
-    </div>
-  </li>
-</ul>
+</ol>
 
   </div>
 

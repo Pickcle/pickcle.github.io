@@ -103,10 +103,6 @@ User [用户名]
 Port [服务器端口]
 </code></pre>
     </div>
-    <p>如果想要ssh保持长连接，在config后面添加</p>
-    <div class="highlighter-rouge"><pre class="highlight"><code>ServerAliveInterval 60
-</code></pre>
-    </div>
   </li>
   <li>将公钥复制到远程机上
     <div class="highlighter-rouge"><pre class="highlight"><code>ssh-copy-id -i ~/.ssh/id_rsa.pub -p [端口] [用户名]@[ip地址]
@@ -130,6 +126,11 @@ PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
 </code></pre>
     </div>
+    <p>如果想要ssh保持长连接，添加</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>TCPKeepAlive yes
+ClientAliveInterval 120
+</code></pre>
+    </div>
   </li>
   <li>更改~/.ssh权限
     <div class="highlighter-rouge"><pre class="highlight"><code>cd ~/.ssh
@@ -144,7 +145,7 @@ chmod 600 authorized_keys
   </li>
 </ul>
 
-<p><strong>回到本机，直接ssh -p [端口] [用户名]@[ip地址]，不用输入密码了，方便多了</strong></p>
+<p><strong>回到本机，直接ssh -p [端口] [用户名]@[ip地址]或者ssh [自定义别名]，不用输入密码了，方便多了</strong></p>
 
   </div>
 

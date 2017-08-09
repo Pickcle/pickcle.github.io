@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>centos6系统安装常用软件</title>
-  <meta name="description" content="最近VPS重装系统了，记录一下需要用到的常用的软件">
+  <title>centos6系统安装高版本nodejs</title>
+  <meta name="description" content="最近VPS重装系统了，记录一下安装nodejs过程 更新yum yum -y update 直接使用yum安装的： yum install -y git nginx 需要下载源码安装的： gcc: 先安装依赖库 yum install -y zip unzip wget http://gcc.skazkafory...">
 
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/centos6/2017/07/24/centos6%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6.html">
@@ -67,7 +67,7 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">centos6系统安装常用软件</h1>
+    <h1 class="post-title" itemprop="name headline">centos6系统安装高版本nodejs</h1>
     <p class="post-meta">
       <time datetime="2017-07-24T12:00:00+08:00" itemprop="datePublished">
         
@@ -77,39 +77,54 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><strong>最近VPS重装系统了，记录一下需要用到的常用的软件</strong></p>
-
+    <p><strong>最近VPS重装系统了，记录一下安装nodejs过程</strong></p>
 <ul>
-  <li>可以直接用yum安装的：
-    <ul>
-      <li>git：
-        <div class="highlighter-rouge"><pre class="highlight"><code>  yum install git
+  <li>更新yum
+    <div class="highlighter-rouge"><pre class="highlight"><code>  yum -y update
 </code></pre>
-        </div>
-      </li>
-    </ul>
+    </div>
+  </li>
+  <li>直接使用yum安装的：
+    <div class="highlighter-rouge"><pre class="highlight"><code>  yum install -y git nginx
+</code></pre>
+    </div>
   </li>
   <li>需要下载源码安装的：
     <ul>
       <li>gcc:
   先安装依赖库
-        <div class="highlighter-rouge"><pre class="highlight"><code>  yum install zip unzip
+        <div class="highlighter-rouge"><pre class="highlight"><code>  yum install -y zip unzip
 </code></pre>
         </div>
         <div class="highlighter-rouge"><pre class="highlight"><code>  wget http://gcc.skazkaforyou.com/releases/gcc-4.8.2/gcc-4.8.2.tar.gz
   tar -zxvf gcc-4.8.2.tar.gz
   cd gcc-4.8.2
-  // 安装依赖库
   ./contrib/download_prerequisites
-  ./configure
+  mkdir build
+  cd build
+  ../configure --enable-checking=release --enable-languages=c,c++ --disable-multilib
   make
-  make install
+  sudo make install
+</code></pre>
+        </div>
+        <p>查看新安装好的gcc版本：i686-pc-linux-gnu-gcc-4.8.2</p>
+        <div class="highlighter-rouge"><pre class="highlight"><code>  ls /usr/local/bin
+</code></pre>
+        </div>
+        <p>然后将gcc链接改用新安装好的4.8.2版本</p>
+        <div class="highlighter-rouge"><pre class="highlight"><code>  /usr/sbin/update-alternatives --install  /usr/bin/gcc gcc /usr/local/bin/i686-pc-linux-gnu-gcc-4.8.2 52
+</code></pre>
+        </div>
+        <p>验证新版本</p>
+        <div class="highlighter-rouge"><pre class="highlight"><code>  gcc -v
 </code></pre>
         </div>
       </li>
-      <li>node/npm:<br />
-  先安装make等相应工具
-        <div class="highlighter-rouge"><pre class="highlight"><code>  yum install gcc make gcc-c++ openssl-devel wget
+      <li>
+        <p>node/npm:</p>
+
+        <p>先安装make等相应工具</p>
+        <div class="highlighter-rouge"><pre class="highlight"><code>  yum install -y gcc make gcc-c++ openssl-devel wget
 </code></pre>
         </div>
         <div class="highlighter-rouge"><pre class="highlight"><code>  yum -y install
@@ -125,6 +140,39 @@
         </div>
       </li>
     </ul>
+  </li>
+</ul>
+
+<p><strong>过程中遇到的问题：</strong></p>
+<ul>
+  <li>node make时报错<code class="highlighter-rouge">GLIBCXX_3.4.18 not found</code><br />
+  解决方法：将升级gcc后生成的动态库替换老版本动态库<br />
+  执行以下命令，查找最新动态库
+    <div class="highlighter-rouge"><pre class="highlight"><code>  find / -name "libstdc++.so*"
+</code></pre>
+    </div>
+    <p>输出：</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  ...
+  /usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so.6
+  /usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so.6.0.18
+  /usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so
+  ...
+</code></pre>
+    </div>
+    <p>将最新动态库复制到/usr/lib下</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  cp /usr/local/src/gcc-4.8.2/build/stage1-i686-pc-linux-gnu/libstdc++-v3/src/.libs/libstdc++.so.6.0.18 /usr/lib
+</code></pre>
+    </div>
+    <p>然后替换原软链接</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  cd /usr/lib
+  rm -rf libstdc++.so.6
+  ln -s libstdc++.so.6.0.18 libstdc++.so.6
+</code></pre>
+    </div>
+    <p>验证是否成功：</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  strings /usr/lib/libstdc++.so.6 | grep GLIBC
+</code></pre>
+    </div>
   </li>
 </ul>
 
