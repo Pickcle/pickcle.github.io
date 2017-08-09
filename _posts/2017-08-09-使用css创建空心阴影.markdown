@@ -1,0 +1,67 @@
+---
+layout: post
+title:  "使用css创建空心阴影"
+date:   2017-08-09 12:00:00 +0800
+categories: box-shadow
+---
+
+**使用box-shadow创建空心阴影**  
+原理就是创建两个box-shadow，前一个阴影颜色与背景色一样，后一个阴影比前一个阴影的spread大1px，颜色设为需要显示的颜色，就可以了。
+```
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="example"></div>
+  </body>
+</html>
+```
+```css
+body {
+  background: #000
+}
+.example {
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  box-shadow: 5px 5px 0 0 #000, 5px 5px 0 1px yellow;
+}
+```
+结果：  
+![img](https://raw.githubusercontent.com/Pickcle/pickcle.github.io/master/images/box-shadow.png)
+
+**使用:after创建空心阴影**  
+原理就是利用:after生成一个同宽同高的div，设置border并做偏移
+```
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="example"></div>
+  </body>
+</html>
+```
+```css
+.example {
+  position: relative;
+  background-color: green;
+  width: 200px;
+  height: 200px;
+}
+.example:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid yellow;
+  z-index: -1;
+}
+```
+结果：  
+![img](https://raw.githubusercontent.com/Pickcle/pickcle.github.io/master/images/after-border.png)  
+这种方式的好处是不用关心背景色是什么颜色，坏处是设置了z-index，有些情况阴影会被覆盖。

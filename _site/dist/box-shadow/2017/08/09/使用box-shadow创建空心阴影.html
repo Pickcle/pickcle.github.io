@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>vps+nodejs+nginx配置</title>
-  <meta name="description" content="记录在vps上如何配置nginx 安装nginx，直接yum安装即可 新建nginx配置文件 cd /etc/nginx/conf.d vi site.conf 输入配置信息 ``` server { listen 80; server_name www.myarki.com;">
+  <title>使用box-shadow创建空心阴影</title>
+  <meta name="description" content="">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="/centos6/2017/07/27/%E4%BD%BF%E7%94%A8box-shadow%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html">
+  <link rel="canonical" href="/box-shadow/2017/08/09/%E4%BD%BF%E7%94%A8box-shadow%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html">
   <link rel="alternate" type="application/rss+xml" title="Pickcle&#39;s Blog" href="/feed.xml">
   
   
@@ -67,60 +67,17 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">vps+nodejs+nginx配置</h1>
+    <h1 class="post-title" itemprop="name headline">使用box-shadow创建空心阴影</h1>
     <p class="post-meta">
-      <time datetime="2017-07-27T12:00:00+08:00" itemprop="datePublished">
+      <time datetime="2017-08-09T12:00:00+08:00" itemprop="datePublished">
         
-        Jul 27, 2017
+        Aug 9, 2017
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><strong>记录在vps上如何配置nginx</strong></p>
-<ul>
-  <li>安装nginx，直接yum安装即可</li>
-  <li>新建nginx配置文件
-    <div class="highlighter-rouge"><pre class="highlight"><code>  cd /etc/nginx/conf.d
-  vi site.conf
-</code></pre>
-    </div>
-    <p>输入配置信息</p>
-    <div class="highlighter-rouge"><pre class="highlight"><code>  server {
-      listen 80;
-      server_name www.myarki.com;
-
-      location / {
-          proxy_pass: http://localhost:9090;
-      }
-  }
-</code></pre>
-    </div>
-    <p>保存退出</p>
-  </li>
-  <li>重启nginx
-    <div class="highlighter-rouge"><pre class="highlight"><code>  service nginx restart
-</code></pre>
-    </div>
-  </li>
-  <li>还可以将nginx服务设置为默认开启
-    <div class="highlighter-rouge"><pre class="highlight"><code>  chkconfig --level 2345 nginx on
-</code></pre>
-    </div>
-    <p>执行以下命令查看：</p>
-    <div class="highlighter-rouge"><pre class="highlight"><code>  chkconfig --list
-</code></pre>
-    </div>
-    <p>重启vps</p>
-    <div class="highlighter-rouge"><pre class="highlight"><code>  reboot
-</code></pre>
-    </div>
-    <p>查看nginx服务是否开启</p>
-    <div class="highlighter-rouge"><pre class="highlight"><code>  netstat --apn
-</code></pre>
-    </div>
-  </li>
-</ul>
+    <p><img src="../images/box-shadow.png" alt="markdown logo" /></p>
 
   </div>
 

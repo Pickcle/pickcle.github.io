@@ -1,48 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-08-09T17:51:15+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
-</subtitle><entry><title type="html">vps+nodejs+nginx配置</title><link href="/centos6/2017/07/27/%E4%BD%BF%E7%94%A8box-shadow%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html" rel="alternate" type="text/html" title="vps+nodejs+nginx配置" /><published>2017-07-27T12:00:00+08:00</published><updated>2017-07-27T12:00:00+08:00</updated><id>/centos6/2017/07/27/%E4%BD%BF%E7%94%A8box-shadow%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1</id><content type="html" xml:base="/centos6/2017/07/27/%E4%BD%BF%E7%94%A8box-shadow%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html">&lt;p&gt;&lt;strong&gt;记录在vps上如何配置nginx&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;安装nginx，直接yum安装即可&lt;/li&gt;
-  &lt;li&gt;新建nginx配置文件
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  cd /etc/nginx/conf.d
-  vi site.conf
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-    &lt;p&gt;输入配置信息&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  server {
-      listen 80;
-      server_name www.myarki.com;
-
-      location / {
-          proxy_pass: http://localhost:9090;
-      }
-  }
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-    &lt;p&gt;保存退出&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;重启nginx
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  service nginx restart
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;还可以将nginx服务设置为默认开启
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  chkconfig --level 2345 nginx on
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-    &lt;p&gt;执行以下命令查看：&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  chkconfig --list
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-    &lt;p&gt;重启vps&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  reboot
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-    &lt;p&gt;查看nginx服务是否开启&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  netstat --apn
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">记录在vps上如何配置nginx 安装nginx，直接yum安装即可 新建nginx配置文件 cd /etc/nginx/conf.d vi site.conf 输入配置信息 ``` server { listen 80; server_name www.myarki.com;</summary></entry><entry><title type="html">vps+nodejs+nginx配置</title><link href="/centos6/2017/07/27/vps+node+nginx%E9%85%8D%E7%BD%AE.html" rel="alternate" type="text/html" title="vps+nodejs+nginx配置" /><published>2017-07-27T12:00:00+08:00</published><updated>2017-07-27T12:00:00+08:00</updated><id>/centos6/2017/07/27/vps+node+nginx%E9%85%8D%E7%BD%AE</id><content type="html" xml:base="/centos6/2017/07/27/vps+node+nginx%E9%85%8D%E7%BD%AE.html">&lt;p&gt;&lt;strong&gt;记录在vps上如何配置nginx&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-08-09T17:53:31+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
+</subtitle><entry><title type="html">使用box-shadow创建空心阴影</title><link href="/box-shadow/2017/08/09/%E4%BD%BF%E7%94%A8box-shadow%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html" rel="alternate" type="text/html" title="使用box-shadow创建空心阴影" /><published>2017-08-09T12:00:00+08:00</published><updated>2017-08-09T12:00:00+08:00</updated><id>/box-shadow/2017/08/09/%E4%BD%BF%E7%94%A8box-shadow%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1</id><content type="html" xml:base="/box-shadow/2017/08/09/%E4%BD%BF%E7%94%A8box-shadow%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html">&lt;p&gt;&lt;img src=&quot;../images/box-shadow.png&quot; alt=&quot;markdown logo&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">vps+nodejs+nginx配置</title><link href="/centos6/2017/07/27/vps+node+nginx%E9%85%8D%E7%BD%AE.html" rel="alternate" type="text/html" title="vps+nodejs+nginx配置" /><published>2017-07-27T12:00:00+08:00</published><updated>2017-07-27T12:00:00+08:00</updated><id>/centos6/2017/07/27/vps+node+nginx%E9%85%8D%E7%BD%AE</id><content type="html" xml:base="/centos6/2017/07/27/vps+node+nginx%E9%85%8D%E7%BD%AE.html">&lt;p&gt;&lt;strong&gt;记录在vps上如何配置nginx&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;安装nginx，直接yum安装即可&lt;/li&gt;
   &lt;li&gt;新建nginx配置文件
