@@ -28,3 +28,7 @@ categories: vps nodejs nginx mongodb vue bandwagon blog
   ```
   kill -2 [pid]
   ```
+* linux查看端口状态
+  ```
+  netstat --apn
+  ```

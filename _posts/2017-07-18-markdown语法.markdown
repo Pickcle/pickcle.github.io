@@ -19,8 +19,6 @@ categories: markdown
 * 几个实用转换范例
 	- md -> html, doc, pdf, ppt
 
-![markdown logo](./figures/1.1.png)
-
 ## Markdown 目录结构
 ### 标题
 * 一级/二级/三级/四级  
@@ -107,4 +105,3 @@ categories: markdown
 * beamer theme快速查看 <http://www.hartwork.org/beamer-theme-matrix/>
 
 ## Thanks
-![Questions](./figures/1.2.jpg)
