@@ -7,6 +7,10 @@ categories: atom packages
 **在windows系统中打开atom，安装package失败，错误码404**
 
 **解决方案：**
+* 方案一：  
 * [https://atom.io/packages](https://atom.io/packages)，找到插件的github地址
 * 进入atom的包管理目录，~/.atom/packages，git clone插件
 * 进入插件目录，npm install
+
+* 方案二：  
+* apm install 插件
