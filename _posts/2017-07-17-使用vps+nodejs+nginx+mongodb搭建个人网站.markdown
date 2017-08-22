@@ -32,3 +32,12 @@ categories: vps nodejs nginx mongodb vue bandwagon blog
   ```
   netstat --apn
   ```
+* linux后台打开mongodb服务器
+  ```
+  mongod &
+  ```
+* linux后台打开api服务器
+  ```
+  node server/apis/index.js &
+  ```
+  
