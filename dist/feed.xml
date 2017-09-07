@@ -1,5 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-09-07T14:35:16+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
-</subtitle><entry><title type="html">使用css创建空心阴影</title><link href="/box-shadow/2017/08/09/%E4%BD%BF%E7%94%A8css%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html" rel="alternate" type="text/html" title="使用css创建空心阴影" /><published>2017-08-09T12:00:00+08:00</published><updated>2017-08-09T12:00:00+08:00</updated><id>/box-shadow/2017/08/09/%E4%BD%BF%E7%94%A8css%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1</id><content type="html" xml:base="/box-shadow/2017/08/09/%E4%BD%BF%E7%94%A8css%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html">&lt;p&gt;&lt;strong&gt;使用box-shadow创建空心阴影&lt;/strong&gt;&lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-09-07T14:37:02+08:00</updated><id>/</id><title type="html">Pickcle’s Blog</title><subtitle>Pickcle's Blog
+</subtitle><entry><title type="html">在vue项目中使用flow进行静态类型检查</title><link href="/vue/flow/2017/08/23/%E5%9C%A8vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8flow%E8%BF%9B%E8%A1%8C%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5.html" rel="alternate" type="text/html" title="在vue项目中使用flow进行静态类型检查" /><published>2017-08-23T12:00:00+08:00</published><updated>2017-08-23T12:00:00+08:00</updated><id>/vue/flow/2017/08/23/%E5%9C%A8vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8flow%E8%BF%9B%E8%A1%8C%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5</id><content type="html" xml:base="/vue/flow/2017/08/23/%E5%9C%A8vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8flow%E8%BF%9B%E8%A1%8C%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5.html">&lt;p&gt;&lt;strong&gt;方案步骤&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;安装相关依赖库：&lt;/li&gt;
+  &lt;li&gt;babel-plugin-syntax-flow&lt;/li&gt;
+  &lt;li&gt;babel-plugin-transform-class-properties&lt;/li&gt;
+  &lt;li&gt;babel-plugin-transform-flow-strip-types&lt;/li&gt;
+  &lt;li&gt;eslint&lt;/li&gt;
+  &lt;li&gt;babel-eslint&lt;/li&gt;
+  &lt;li&gt;eslint-plugin-html&lt;/li&gt;
+  &lt;li&gt;eslint-plugin-flowtype-errors&lt;/li&gt;
+  &lt;li&gt;eslint-plugin-vue&lt;/li&gt;
+  &lt;li&gt;eslint-config-vue&lt;/li&gt;
+  &lt;li&gt;flow-bin&lt;/li&gt;
+  &lt;li&gt;修改.babelrc
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;plugins&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;babel-plugin-transform-class-properties&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;babel-plugin-syntax-flow&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;babel-plugin-transform-flow-strip-types&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;修改.eslintrc
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;parser&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;babel-eslint&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;plugins&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;html&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;flowtype-errors&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;extends&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;vue&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;rules&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;flowtype-errors/show-errors&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;创建.flowconfig文件，可以为空&lt;/li&gt;
+  &lt;li&gt;现在可以在.vue的script中使用静态类型检测了&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">方案步骤 安装相关依赖库： babel-plugin-syntax-flow babel-plugin-transform-class-properties babel-plugin-transform-flow-strip-types eslint babel-eslint eslint-plugin-html eslint-plugin-flowtype-errors eslint-plugin-vue eslint-config-vue flow-bin 修改.babelrc { ... &quot;plugins&quot;: [ &quot;babel-plugin-transform-class-properties&quot;, &quot;babel-plugin-syntax-flow&quot;, &quot;babel-plugin-transform-flow-strip-types&quot; ] } 修改.eslintrc ``` { “parser”: “babel-eslint”,</summary></entry><entry><title type="html">使用css创建空心阴影</title><link href="/box-shadow/2017/08/09/%E4%BD%BF%E7%94%A8css%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html" rel="alternate" type="text/html" title="使用css创建空心阴影" /><published>2017-08-09T12:00:00+08:00</published><updated>2017-08-09T12:00:00+08:00</updated><id>/box-shadow/2017/08/09/%E4%BD%BF%E7%94%A8css%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1</id><content type="html" xml:base="/box-shadow/2017/08/09/%E4%BD%BF%E7%94%A8css%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E9%98%B4%E5%BD%B1.html">&lt;p&gt;&lt;strong&gt;使用box-shadow创建空心阴影&lt;/strong&gt;&lt;br /&gt;
 原理就是创建两个box-shadow，前一个阴影颜色与背景色一样，后一个阴影比前一个阴影的spread大1px，颜色设为需要显示的颜色，就可以了。&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
@@ -624,9 +671,4 @@ node_js:
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry><entry><title type="html">Vue warn: You are using the runtime-only build of Vue</title><link href="/vue/2017/05/28/Vue-runtime-only-build.html" rel="alternate" type="text/html" title="Vue warn: You are using the runtime-only build of Vue" /><published>2017-05-28T12:00:00+08:00</published><updated>2017-05-28T12:00:00+08:00</updated><id>/vue/2017/05/28/Vue-runtime-only-build</id><content type="html" xml:base="/vue/2017/05/28/Vue-runtime-only-build.html">&lt;p&gt;&lt;strong&gt;Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;解决方案：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;node_modules中vue的package.json中可以看到，真正导出的是main指向的vue.runtime.common.js，所以如果直接import vue from ‘vue’的话，引用的是vue.runtime.common.js，而vue其实是rumtime+compile两部分组成的，所以我们需要在webpack中设置个vue的别名，alias中添加一行’vue’: ‘vue/dist/vue.js’，然后项目中正常使用就可以了&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><summary type="html">Vue warn: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</summary></entry></feed>
