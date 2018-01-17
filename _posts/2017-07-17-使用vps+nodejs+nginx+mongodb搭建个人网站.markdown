@@ -30,7 +30,7 @@ categories: vps nodejs nginx mongodb vue bandwagon blog
   ```
 * linux查看端口状态
   ```
-  netstat --apn
+  netstat -apn
   ```
 * linux后台打开mongodb服务器
   ```
@@ -40,4 +40,3 @@ categories: vps nodejs nginx mongodb vue bandwagon blog
   ```
   node server/apis/index.js &
   ```
-  

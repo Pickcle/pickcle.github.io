@@ -16,10 +16,13 @@ categories: centos6
 	```
 	server {
 		listen 80;
-		server_name www.myarki.com;
+		server_name www.myarki.com myarki.com;
 
 		location / {
-			proxy_pass: http://localhost:9090;
+			root /root/blog/dist;
+			index index.html;
+			autoindex on;
+			allow all;
 		}
 	}
 	```
